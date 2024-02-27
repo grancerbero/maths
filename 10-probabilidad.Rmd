@@ -1,0 +1,29 @@
+# Probabilidad
+
+##  Espacios muestrales
+
+```{definition, label, name="Espacio muestral y evento"}
+El *espacio muestral* $S$  de un experimento es el conjunto de todos los posibles resultados de un experimento. Un *evento* $A$ es un subconjunto del espacio muestral $S$ y se dice que $A$ *ocurrió* si el resultado actual pertenece a $A$
+```
+
+```{r echo=FALSE, out.width='30%', fig.cap="Un espacio muestral es como  un mundo de canicas con dos eventos $A$ y $B$", fig.align='center'}
+
+knitr::include_graphics('./images/pebbles.png')
+```
+
+El espacio muestral de un experimento puede ser finito o infinito contable o infinito incontable, cuando el espacio muestral  es finito puede visualizarse como un mundo de canicas, como muestra la figura. Cada canica respresenta un resultado, y un evento es un conjunto de canicas.  Realizar un experimento es equivalente a escoger una canica en forma aleatoria. 
+
+Por ejemplo, sea $S$ el espacio muestral de un experimento y sean $A$ y $B$ eventos. Entonces, la unión $A \cup B$ es el evento que ocurre si y solo si al menos uno de $A$ y $B$ ocurre, la intersección $A \cap B$ es el evento que ocurre si y solo si ambos $A$ y $B$ ocurren, y el complemento $A^c$ es el evento que ocurre si y solo si $A$ no ocurre. También tenemos las leyes de De Morgan:
+
+$$(A \cup B)^c = A^c \cap B^c \textrm{ and } (A \cap B)^c = A^c \cup B^c$$
+
+puesto que decir que no es el caso que al menos uno de $A$ y $B$ ocurra es lo mismo que decir que $A^c$ no ocurre y $B^c$ no ocurre, y decir que no es el caso que ambos ocurran es lo mismo que decir que al menos uno no ocurre. Resultados análogos se mantienen para uniones e intersecciones de más de dos eventos.
+
+En el ejemplo mostrado en la Figura, $A$ es un conjunto de $n$ canicas, $B$ es un conjunto de $m$ canicas, $A \cup B$ consiste en los $n + m$ canicas en $A$ o $B$ (incluyendo el canicas que está en ambos), $A \cap B$ consiste en las canicas que está en ambos $A$ y $B$, y $A^c$ consiste en las $n$ canicas que no están en $A$.
+
+En el ejemplo  de la figura, $A$ es un conjunto de 5 canicas,$B$ es un conjunto de 4 canicas, $A \cup B$ es un conjunto de 8 canicas, incluyendo la que esta en los dos conjuntos, $A \cap B$ es un conjunto de 1 canica y $A^c$ consiste en cuatro canicas que no están en $A$
+
+
+```{example, coins, name="Lanzamiento de monedas"}
+Una moneda es lanzada 10 veces 
+```
