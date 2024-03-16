@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 7 Probabilidad | Notas de matemáticas</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 7 Probabilidad | Notas de matemáticas" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 7 Probabilidad | Notas de matemáticas" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Hector Henry Jurado Soto" />
+
+
+<meta name="date" content="2024-03-16" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="final-words.html"/>
+<link rel="next" href="codigos-fuente.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
+<li class="chapter" data-level="3" data-path="literature.html"><a href="literature.html"><i class="fa fa-check"></i><b>3</b> Literature</a></li>
+<li class="chapter" data-level="4" data-path="methods.html"><a href="methods.html"><i class="fa fa-check"></i><b>4</b> Methods</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="methods.html"><a href="methods.html#math-example"><i class="fa fa-check"></i><b>4.1</b> math example</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>5</b> Applications</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="applications.html"><a href="applications.html#example-one"><i class="fa fa-check"></i><b>5.1</b> Example one</a></li>
+<li class="chapter" data-level="5.2" data-path="applications.html"><a href="applications.html#example-two"><i class="fa fa-check"></i><b>5.2</b> Example two</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>6</b> Final Words</a></li>
+<li class="chapter" data-level="7" data-path="probabilidad.html"><a href="probabilidad.html"><i class="fa fa-check"></i><b>7</b> Probabilidad</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="probabilidad.html"><a href="probabilidad.html#espacios-muestrales"><i class="fa fa-check"></i><b>7.1</b> Espacios muestrales</a></li>
+<li class="chapter" data-level="7.2" data-path="probabilidad.html"><a href="probabilidad.html#definicion-ingenua-de-probabilidad-naive-definition-of-probability"><i class="fa fa-check"></i><b>7.2</b> Definicion ingenua de probabilidad (Naive definition of probability)</a></li>
+<li class="chapter" data-level="7.3" data-path="probabilidad.html"><a href="probabilidad.html#probabilidad-y-conteo"><i class="fa fa-check"></i><b>7.3</b> Probabilidad y conteo</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="codigos-fuente.html"><a href="codigos-fuente.html"><i class="fa fa-check"></i>Codigos fuente</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Notas de matemáticas</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="probabilidad" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">Chapter 7</span> Probabilidad<a href="probabilidad.html#probabilidad" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="espacios-muestrales" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Espacios muestrales<a href="probabilidad.html#espacios-muestrales" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="definition">
+<p><span id="def:muestral" class="definition"><strong>Definition 7.1  (Espacio muestral y evento) </strong></span>El <em>espacio muestral</em> <span class="math inline">\(S\)</span> de un experimento es el conjunto de todos los posibles resultados de un experimento. Un <em>evento</em> <span class="math inline">\(A\)</span> es un subconjunto del espacio muestral <span class="math inline">\(S\)</span> y se dice que <span class="math inline">\(A\)</span> <em>ocurrió</em> si el resultado actual pertenece a <span class="math inline">\(A\)</span></p>
+</div>
+<p><span class="citation">(<a href="#ref-blitzstein2019">K. Blitzstein and Hwang 2019</a>)</span></p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-3"></span>
+<img src="images/pebbles.png" alt="Un espacio muestral es como  un mundo de canicas con dos eventos $A$ y $B$" width="30%" />
+<p class="caption">
+Figure 7.1: Un espacio muestral es como un mundo de canicas con dos eventos <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span>
+</p>
+</div>
+<p>El espacio muestral de un experimento puede ser finito o infinito contable o infinito incontable, cuando el espacio muestral es finito puede visualizarse como un mundo de canicas, como muestra la figura. Cada canica representa un resultado, y un evento es un conjunto de canicas. Realizar un experimento es equivalente a escoger una canica en forma aleatoria.</p>
+<p>Por ejemplo, sea <span class="math inline">\(S\)</span> el espacio muestral de un experimento y sean <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> eventos. Entonces, la unión <span class="math inline">\(A \cup B\)</span> es el evento que ocurre si y solo si al menos uno de <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> ocurre, la intersección <span class="math inline">\(A \cap B\)</span> es el evento que ocurre si y solo si ambos <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> ocurren, y el complemento <span class="math inline">\(A^c\)</span> es el evento que ocurre si y solo si <span class="math inline">\(A\)</span> no ocurre. También tenemos las leyes de De Morgan:</p>
+<p><span class="math display">\[(A \cup B)^c = A^c \cap B^c \textrm{ and } (A \cap B)^c = A^c \cup B^c\]</span></p>
+<p>puesto que decir que no es el caso que al menos uno de <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> ocurra es lo mismo que decir que <span class="math inline">\(A^c\)</span> no ocurre y <span class="math inline">\(B^c\)</span> no ocurre, y decir que no es el caso que ambos ocurran es lo mismo que decir que al menos uno no ocurre. Resultados análogos se mantienen para uniones e intersecciones de más de dos eventos.</p>
+<p>En el ejemplo mostrado en la Figura, <span class="math inline">\(A\)</span> es un conjunto de <span class="math inline">\(n\)</span> canicas, <span class="math inline">\(B\)</span> es un conjunto de <span class="math inline">\(m\)</span> canicas, <span class="math inline">\(A \cup B\)</span> consiste en los <span class="math inline">\(n + m\)</span> canicas en <span class="math inline">\(A\)</span> o <span class="math inline">\(B\)</span> (incluyendo el canicas que está en ambos), <span class="math inline">\(A \cap B\)</span> consiste en las canicas que está en ambos <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span>, y <span class="math inline">\(A^c\)</span> consiste en las <span class="math inline">\(n\)</span> canicas que no están en <span class="math inline">\(A\)</span>.</p>
+<p>En el ejemplo de la figura, <span class="math inline">\(A\)</span> es un conjunto de 5 canicas,<span class="math inline">\(B\)</span> es un conjunto de 4 canicas, <span class="math inline">\(A \cup B\)</span> es un conjunto de 8 canicas, incluyendo la que esta en los dos conjuntos, <span class="math inline">\(A \cap B\)</span> es un conjunto de 1 canica y <span class="math inline">\(A^c\)</span> consiste en cuatro canicas que no están en <span class="math inline">\(A\)</span></p>
+<div class="example">
+<p><span id="exm:coins" class="example"><strong>Example 7.1  (Espacio muestral y evento) </strong></span>Una moneda es lanzada 10 veces , se escribirá heads como <span class="math inline">\(H\)</span> y tails como <span class="math inline">\(T\)</span>, un posible resultado es <span class="math inline">\(HHHTHHTTHT\)</span>, el espacio muestral es el conjunto de todas las posibles cadenas de longitud 10 de <span class="math inline">\(H&#39;s\)</span> y <span class="math inline">\(T&#39;s\)</span>.</p>
+<p>Se puede codificar <span class="math inline">\(H\)</span> como <span class="math inline">\(1\)</span> y <span class="math inline">\(T\)</span> como <span class="math inline">\(0\)</span>, asi que un resultado es una secuencia <span class="math inline">\((s_1,s_2,s_3, ..., s_{10}))\)</span> con <span class="math inline">\(s_j \in \{0, 1\}\)</span>, y el espacio muestral es el conjunto de todas esas secuencias.</p>
+<p>Veamos ahora algunos eventos:</p>
+<ol style="list-style-type: decimal">
+<li>Sea <span class="math inline">\(A_1\)</span> el evento en que la primer lanzamiento es Head</li>
+</ol>
+<p><span class="math display">\[ A_1 = {(1,s_2, ...,s_{10}) }: s_j \in\ \{0,1\} , 2 \leq j  \leq  10\]</span></p>
+<p>Este es un subconjunto del espacio muestral, o sea un evento, decir que <span class="math inline">\(A_1\)</span> ocurre es lo mismo que decir que el primer lanzamiento es Head. Similarmente se dice que <span class="math inline">\(A_j\)</span> es el evento en que el <span class="math inline">\(j_{esimo}\)</span> lanzamiento es Head, donde j =2,3,…,10.</p>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Sea <span class="math inline">\(B\)</span> el evento en el que al menos un lanzamiento fue head <span class="math display">\[ B =   \bigcup_{j=1}^{10} A_j  \]</span></p></li>
+<li><p>Sea <span class="math inline">\(C\)</span> el evento en el que todos los lanzamientos fueron heads <span class="math display">\[ C =   \bigcap_{j=1}^{10} A_j  \]</span></p></li>
+<li><p>Sea <span class="math inline">\(D\)</span> el evento en que hubo al menos dos Heads consecutivos</p></li>
+</ol>
+<p><span class="math display">\[ C =   \bigcup_{j=1}^{9} ( A_j \cap A_{j+1} )   \]</span></p>
+</div>
+</div>
+<div id="definicion-ingenua-de-probabilidad-naive-definition-of-probability" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> Definicion ingenua de probabilidad (Naive definition of probability)<a href="probabilidad.html#definicion-ingenua-de-probabilidad-naive-definition-of-probability" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Históricamente, la definición de probabilidad de un evento fue contar el número de maneras en que evento puede suceder y dividir por el número total de resultados posibles del experimento.</p>
+<div class="definition">
+<p><span id="def:definicioningenuaprobabilidad" class="definition"><strong>Definition 7.2  (Definición ingenua de probabilidad) </strong></span>Sea <span class="math inline">\(A\)</span> un evento para un experimento con un espacio muestral finito <span class="math inline">\(S\)</span> . la probabilidad ingenua de <span class="math inline">\(A\)</span> es</p>
+<p><span class="math display">\[P_{naive} (A) = \frac{|A|}{|S|} = \frac { numero\, de\, resultados\, favorables\, de\, A}{total\, numero\, de\, resultados\, en\, S} \]</span></p>
+<p>en donde |A| es el tamaño (cardinalidad ) del conjunto A</p>
+</div>
+<p>La definición ingenua es muy restrictiva en que esto requiere que <span class="math inline">\(S\)</span> sea finito, con igual masa para cada uno de las canicas por ejemplo. A a menudo es mal aplicado por personas que asumen resultados igualmente probables sin justificación y presentan argumentos en el sentido de ” o sucederá o no sucederá y no sabemos cual, así que es 50-50”. Por ejemplo, si no sabemos si hay vida en saturno ¿deberíamos concluir que es 50-50? ¿Que pasa con la vida inteligente en saturno, que parece que debería ser estrictamente menos probable que exista alguna forma de vida en saturno ? Sin embargo hay varios tipos importantes de problemas en los que la definición ingenua es aplicable, como cuando hay simetría en el problema, que hace que los resultados sean igualmente probables.<span class="citation">(<a href="#ref-blitzstein2019">K. Blitzstein and Hwang 2019</a>)</span></p>
+</div>
+<div id="probabilidad-y-conteo" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">7.3</span> Probabilidad y conteo<a href="probabilidad.html#probabilidad-y-conteo" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Calcular la probabilidad ingenua de un evento <span class="math inline">\(A\)</span> implica contar el numero de canicas en <span class="math inline">\(A\)</span> y el numero de canicas en el espacio muestral <span class="math inline">\(S\)</span>. A menudo estos conjuntos con extremadamente grandes, por lo que podría ser tedioso o inviable contar las posibilidades uno a uno. Para abordar este desafío existen algunas técnicas de conteo.</p>
+<div class="theorem">
+<p><span id="thm:reglamultiplicacion" class="theorem"><strong>Theorem 7.1  (Regla de la multiplicación) </strong></span>Consideremos un experimento compuesto consistiendo en dos sub-experimentos, experimento <span class="math inline">\(A\)</span> y experimento <span class="math inline">\(B\)</span>. supongamos que el experimiento <span class="math inline">\(A\)</span> tiene <span class="math inline">\(a\)</span> posibles resultados y para cada uno de esos resultados el experimento <span class="math inline">\(B\)</span> tiene <span class="math inline">\(b\)</span> posibles resultados, entonces el experimento compuesto tiene <span class="math inline">\(ab\)</span> posibles resultados</p>
+</div>
+<p>Imaginemos un diagrama como muestra la figura, consta de</p>
+<div class="example">
+<p><span id="exm:ejemplomultiplicacion" class="example"><strong>Example 7.2  (conos de helado) </strong></span>Supongamos que estamos comprando un helado en cono, se puede escoger entre un cake(pastel) o un waffle(oblea) y cada uno de ellos puede tener chocolate , vainilla o fresa como su sabor</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-4"></span>
+<img src="images/reglademultiplicacion1.drawio.png" alt="Diagrama de árbol para un cono de helado" width="80%" />
+<p class="caption">
+Figure 7.2: Diagrama de árbol para un cono de helado
+</p>
+</div>
+<p>Por la regla de la multiplicación existen <span class="math inline">\(2.3=3.2=6\)</span> posibilidades. Pero debemos tener en cuenta algunas cosas como:</p>
+<ul>
+<li><p>No importa si se elige primero el tipo de cono ( “quiero un cono de waffles con helado de chocolate” ) o el sabor (“Quiero un cono de chocolate en un cono de waffles”), de cualquier forma hay posibilidades.</p></li>
+<li><p>No importa si los mismos sabores están disponibles en un cono de pastel que en un cono de oblea, Lo que importa es que hay exactamente tres opciones de sabor para cada opción de cono, si por algún motivo estuviese prohibido tener un sabor de chocolate en un cono de oblea por ejemplo ( y sin sustituto, ) , hay posibilidades pero la regla de multiplicación no aplicaría.</p></li>
+</ul>
+<p>Podemos usar la regla de multiplicación para llegar a fórmulas de muestreo con y sin reemplazo. Muchos experimentos en probabilidad y estadística pueden interpretarse en un de estos dos contextos, por lo que es atractivo que ambas fórmulas seigan directamente el mismo principio básico de conteo.</p>
+<div class="theorem">
+<p><span id="thm:muestreoconreemplazo" class="theorem"><strong>Theorem 7.2  (Muestreo con reemplazo) </strong></span>Consideremos <span class="math inline">\(n\)</span> objetos y tomamos <span class="math inline">\(k\)</span> de ellos, una a la vez con reemplazo( es decir elegir un determinado objeto no impide que se elija nuevamente). entonces hay <span class="math inline">\(n^k\)</span> posibles resultados</p>
+</div>
+<p>Por ejemplo, imaginemos que un frasco con <span class="math inline">\(n\)</span> canicas, etiquetadas del 1 a <span class="math inline">\(n\)</span>, tomamos muestras de las bolas, una a la vez con reemplazo, lo que significa que cada vez que se elige una bola, se devuelve al frasco. Cada bola muestreada es un sub-experimento con <span class="math inline">\(n\)</span> posibles resultados, y hay <span class="math inline">\(k\)</span> sub-experimentos, entonces mediante la regla de multiplicación , hay <span class="math inline">\(n^k\)</span> formas de obtener una muestra de tamaño <span class="math inline">\(k\)</span></p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-5"></span>
+<img src="images/muestreoconreemplazo.drawio.png" alt="Muestreo con reemplazo cuando n=5 y k = 2" width="81" />
+<p class="caption">
+Figure 7.3: Muestreo con reemplazo cuando n=5 y k = 2
+</p>
+</div>
+<div class="theorem">
+<p><span id="thm:muestreosinreemplazo" class="theorem"><strong>Theorem 7.3  (Muestreo sin reemplazo) </strong></span>Consideremos <span class="math inline">\(n\)</span> objetos y tomamos <span class="math inline">\(k\)</span> de ellos, una a la vez sin reemplazo( es decir elegir un determinado objeto y se impide que se elija nuevamente). entonces hay <span class="math inline">\(n(n-1) ... (n-k+1)\)</span> posibles resultados , para <span class="math inline">\(k &lt;= n\)</span> y (0 posibilidades para <span class="math inline">\(k&gt;n\)</span>)</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-6"></span>
+<img src="images/muestreosinreemplazo.drawio.png" alt="Muestreo sin reemplazo cuando n=5 y k = 2" width="81" />
+<p class="caption">
+Figure 7.4: Muestreo sin reemplazo cuando n=5 y k = 2
+</p>
+</div>
+<p>El resultado es consecuencia directa de la regla de multiplicación: cada canica muestreada es otra vez un sub-experimento, y el número de posibles resultados decrece en uno (1) cada vez. Notemos que para muestrear <span class="math inline">\(k\)</span> de <span class="math inline">\(n\)</span> objetos sin reemplazo, necesitamos <span class="math inline">\(k &lt;= n\)</span>, mientras que en el muestreo con reemplazo los objetos son inagotables.</p>
+<div class="example">
+<p><span id="exm:permutaciones" class="example"><strong>Example 7.3  (Permutaciones y factoriales) </strong></span>Una <em>permutación</em> de <span class="math inline">\(1,2,...,n\)</span> es una disposicion de ellos en algun orden, ej. <span class="math inline">\(3,5,1,2,4\)</span> es una permutación de <span class="math inline">\(1,2,3,4,5\)</span> por el teorema <a href="probabilidad.html#thm:muestreosinreemplazo">7.3</a> con <span class="math inline">\(k=n\)</span> tendríamos que hay <span class="math inline">\(n!\)</span> permutaciones de <span class="math inline">\(1,2,...,n\)</span>. Por ejemplo hay <span class="math inline">\(n!\)</span> maneras en las cuales <span class="math inline">\(n\)</span> personas pueden alinearse en una fila para comprar un helado</p>
+</div>
+<p>Los teoremas <a href="probabilidad.html#thm:muestreoconreemplazo">7.2</a> y <a href="probabilidad.html#thm:muestreosinreemplazo">7.3</a> se refieren a <em>conteo</em>, pero cuando la definición de probabilidad ingenua aplica, podemos usarlos para calcular <em>probabilidades</em></p>
+<div class="example">
+<p><span id="exm:problemanacimiento" class="example"><strong>Example 7.4  (Problema del nacimiento) </strong></span>Existen <span class="math inline">\(k\)</span> personas en un cuarto, asumimos que los cumpleaños de cada persona son igualmente probables para cualquiera de los 365 días del año (se excluye febrero 29), y que los cumpleaños son independientes ( no hay gemelos en el cuarto), cual es la probabilidad que dos o mas personas en el grupo tengan la misma fecha de cumpleaños.</p>
+</div>
+<p><strong>Solución</strong>
+La definición de probabilidad ingenua dice que solo necesitamos contar el numero de formas para asignar cumpleaños a $k4 personas de tal forma que hay dos o mas personas comparten la misma fecha de cumpleaños. Este problema de conteo es un poco complejo, puesto que por ejemplo Emma y Steve comparten la fecha de cumpleaños, o Steve y Naomi o los tres juntos, o tres de ellos pueden compartir la fecha de cumpleaños, mientras otros dos en el grupo comparten fecha de nacimiento diferentes, o un monton de otras posibilidades.</p>
+<p>En vez de eso, contemos el complemento: el numero de maneras para asignar cumpleaños a <span class="math inline">\(k\)</span> personas de tal forma que no haya dos personas que compartan un cumpleaños. Esto equivale a un muestreo de los 365 dias del año <em>sin</em> reemplazo, es decir para la primera persona, hay 365 opciones para elegir el día del año de su cumpleaños, para la segunda persona, quedan 364 opciones, ya que no puede compartir el mismo día de cumpleaños con la primera persona. De manera similar, para la tercera persona quedan 363 opciones, puesto que no puede compartir el mismo día de cumpleaños con las dos primeras personas, de igual forma para la <span class="math inline">\(k-esima\)</span> persona hay <span class="math inline">\(365-k+1\)</span> opciones, por lo tanto el numero total de formas de asignar cumpleaños es por el teorema <a href="probabilidad.html#thm:muestreosinreemplazo">7.3</a> de <span class="math inline">\(365.364.363...(365-k+1)\)</span> para <span class="math inline">\(k&lt;=365\)</span></p>
+<p>Sea <span class="math inline">\(A\)</span> el evento de obtener formas en que todas <span class="math inline">\(k\)</span> personas cumplen años en días diferentes, por tanto <span class="math inline">\(|A|=365.364.363...(365-k+1)\)</span></p>
+<p>El total de formas posibles de asignar cumpleaños en el cuarto es <span class="math inline">\(|S|=365^k\)</span>, a las <span class="math inline">\(k\)</span> personas, ya que cada persona puede tener su cumpleaños en cualquiera de los 365 días del año, de acuerdo al teorema <a href="probabilidad.html#thm:muestreoconreemplazo">7.2</a></p>
+<p>por tanto :</p>
+<p><span class="math display">\[P(A)=\frac{|A|}{|B|} =\frac{365.364.363...(365-k+1)}{365^k}  \]</span></p>
+<p><span class="math display">\[P(A)=\frac{|A|}{|B|} =\frac{365.364.363...(365-k+1)}{365^k}  \]</span>
+Por tanto la probabilidad de que al menos una fecha de cumpleaños coincida es;
+<span class="math display">\[1 - P(A) = 1- \frac{365.364.363...(365-k+1)}{365^k}  \]</span>
+La figura realizada con python dibuja la probabilidad de que al menos una fecha de cumpleaños concuerda como una funcion de <span class="math inline">\(k\)</span>. con <span class="math inline">\(k=23\)</span> la probabilidad de coincidencia excede <span class="math inline">\(0.5\)</span>, para <span class="math inline">\(k=57\)</span> la probabilidad es cercana al %99%</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-7"></span>
+<img src="images/paradojacumpleanos.png" alt="Probabilidad de  que en un cuarto de $k$ personas al menos dos nacen en el mismo día" width="60%" />
+<p class="caption">
+Figure 7.5: Probabilidad de que en un cuarto de <span class="math inline">\(k\)</span> personas al menos dos nacen en el mismo día
+</p>
+</div>
+
+</div>
+</div>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-blitzstein2019" class="csl-entry">
+K. Blitzstein, Joseph, and Jessica Hwang. 2019. <em>Introduction to Probability Second Edition</em>. <a href="https://drive.google.com/file/d/1VmkAAGOYCTORq1wxSQqy255qLJjTNvBI/view">https://drive.google.com/file/d/1VmkAAGOYCTORq1wxSQqy255qLJjTNvBI/view</a>.
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="final-words.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="codigos-fuente.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/10-probabilidad.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

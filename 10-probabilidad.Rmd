@@ -70,7 +70,7 @@ La definición ingenua es muy restrictiva en que esto requiere que $S$ sea finit
 Calcular la probabilidad ingenua de un evento $A$ implica contar el numero de canicas en $A$ y el numero de canicas en el espacio muestral $S$. A menudo estos conjuntos con extremadamente grandes, por lo que podría ser tedioso o inviable contar las posibilidades uno a uno. Para abordar este desafío existen algunas técnicas de conteo.
 
 ::: {#reglamultiplicacion .theorem name="Regla de la multiplicación"}
-Consideremos un experimento compuesto consistiendo en dos subexperimentos, experimento $A$ y experimento $B$. supongamos que el experimiento $A$ tiene $a$ posibles resultados y para cada uno de esos resultados el experimento $B$ tiene $b$ posibles resultados, entonces el experimento compuesto tiene $ab$ posibles resultados
+Consideremos un experimento compuesto consistiendo en dos sub-experimentos, experimento $A$ y experimento $B$. supongamos que el experimiento $A$ tiene $a$ posibles resultados y para cada uno de esos resultados el experimento $B$ tiene $b$ posibles resultados, entonces el experimento compuesto tiene $ab$ posibles resultados
 :::
 
 Imaginemos un diagrama como muestra la figura, consta de
