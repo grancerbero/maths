@@ -1,5 +1,5 @@
 --- 
-title: "Notas de matematicas"
+title: "Notas de matemáticas"
 author: "Hector Henry Jurado Soto"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
