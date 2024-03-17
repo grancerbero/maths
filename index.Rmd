@@ -1,5 +1,5 @@
 --- 
-title: "Notas de matemáticas"
+title: "Notas de estadística matemática"
 author: "Hector Henry Jurado Soto"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -9,7 +9,7 @@ bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
 github-repo: rstudio/bookdown-demo
-description: "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
+description: "Un libro diseñado para explorar los fundamentos matemáticos que sustentan la ciencia de la estadística. Desde los conceptos básicos de la teoría de la probabilidad hasta las aplicaciones prácticas de la inferencia estadística."
 ---
 
 # Prerequisites
