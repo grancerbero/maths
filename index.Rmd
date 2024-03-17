@@ -1,5 +1,5 @@
 --- 
-title: "Notas de estadística matemática"
+title: "Apuntes de estadística matemática"
 author: "Hector Henry Jurado Soto"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site

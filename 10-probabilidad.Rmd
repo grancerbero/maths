@@ -60,7 +60,7 @@ Sea $A$ un evento para un experimento con un espacio muestral finito $S$ . la pr
 
 $$P_{naive} (A) = \frac{|A|}{|S|} = \frac { numero\, de\, resultados\, favorables\, de\, A}{total\, numero\, de\, resultados\, en\, S} $$
 
-en donde \|A\| es el tamaño (cardinalidad ) del conjunto A
+en donde $|A|$ es el tamaño (cardinalidad ) del conjunto $A$
 :::
 
 La definición ingenua es muy restrictiva en que esto requiere que $S$ sea finito, con igual masa para cada uno de las canicas por ejemplo. A a menudo es mal aplicado por personas que asumen resultados igualmente probables sin justificación y presentan argumentos en el sentido de " o sucederá o no sucederá y no sabemos cual, así que es 50-50". Por ejemplo, si no sabemos si hay vida en saturno ¿deberíamos concluir que es 50-50? ¿Que pasa con la vida inteligente en saturno, que parece que debería ser estrictamente menos probable que exista alguna forma de vida en saturno ? Sin embargo hay varios tipos importantes de problemas en los que la definición ingenua es aplicable, como cuando hay simetría en el problema, que hace que los resultados sean igualmente probables.[@blitzstein2019]
@@ -121,13 +121,13 @@ Una *permutación* de $1,2,...,n$ es una disposicion de ellos en algun orden, ej
 Los teoremas \@ref(thm:muestreoconreemplazo) y \@ref(thm:muestreosinreemplazo) se refieren a *conteo*, pero cuando la definición de probabilidad ingenua aplica, podemos usarlos para calcular *probabilidades*
 
 ::: {#problemanacimiento .example name="Problema del nacimiento"}
-Existen $k$ personas en un cuarto, asumimos que los cumpleaños de cada persona son igualmente probables para cualquiera de los 365 días del año (se excluye febrero 29), y que los cumpleaños son independientes ( no hay gemelos en el cuarto), cual es la probabilidad que dos o mas personas en el grupo tengan la misma fecha de cumpleaños.
+Existen $k$ personas en un cuarto, asumimos que los cumpleaños de cada persona son igualmente probables para cualquiera de los $365$ días del año (se excluye febrero 29), y que los cumpleaños son independientes ( no hay gemelos en el cuarto), cual es la probabilidad que dos o mas personas en el grupo tengan la misma fecha de cumpleaños.
 :::
 
 **Solución**
-La definición de probabilidad ingenua  dice que solo necesitamos   contar el numero de formas para asignar cumpleaños a $k4 personas de tal forma que  hay dos o mas personas comparten la misma fecha de cumpleaños. Este problema de conteo es un poco complejo, puesto que por ejemplo  Emma y Steve  comparten la fecha de cumpleaños, o Steve  y Naomi o los tres juntos,  o  tres de  ellos  pueden compartir la fecha  de cumpleaños, mientras  otros dos en el grupo comparten fecha de nacimiento diferentes, o un monton de otras posibilidades.
+La definición de probabilidad ingenua  dice que solo necesitamos   contar el numero de formas para asignar cumpleaños a $k$ personas de tal forma que  hay dos o mas personas comparten la misma fecha de cumpleaños. Este problema de conteo es un poco complejo, puesto que por ejemplo  Emma y Steve  comparten la fecha de cumpleaños, o Steve  y Naomi o los tres juntos,  o  tres de  ellos  pueden compartir la fecha  de cumpleaños, mientras  otros dos en el grupo comparten fecha de nacimiento diferentes, o un monton de otras posibilidades.
 
-En vez de eso, contemos el complemento: el numero de maneras  para asignar cumpleaños a $k$ personas  de tal forma que no haya dos personas  que compartan un cumpleaños. Esto equivale  a un muestreo de los 365 dias del año _sin_ reemplazo, es decir  para la primera persona, hay 365 opciones para elegir el día del año de su cumpleaños, para la segunda persona, quedan 364 opciones, ya que no puede compartir el mismo día de cumpleaños con la primera persona. De manera similar, para la tercera persona quedan 363 opciones, puesto que no puede compartir el mismo día de cumpleaños con las dos primeras personas, de igual forma para la $k-esima$ persona hay $365-k+1$ opciones, por lo tanto el numero total de formas de asignar cumpleaños es por el teorema \@ref(thm:muestreosinreemplazo) de $365.364.363...(365-k+1)$ para $k<=365$ 
+En vez de eso, contemos el complemento: el numero de maneras  para asignar cumpleaños a $k$ personas  de tal forma que no haya dos personas  que compartan un cumpleaños. Esto equivale  a un muestreo de los 365 dias del año _sin_ reemplazo, es decir  para la primera persona, hay $365$ opciones para elegir el día del año de su cumpleaños, para la segunda persona, quedan 364 opciones, ya que no puede compartir el mismo día de cumpleaños con la primera persona. De manera similar, para la tercera persona quedan 363 opciones, puesto que no puede compartir el mismo día de cumpleaños con las dos primeras personas, de igual forma para la $k-esima$ persona hay $365-k+1$ opciones, por lo tanto el numero total de formas de asignar cumpleaños es por el teorema \@ref(thm:muestreosinreemplazo) de $365.364.363...(365-k+1)$ para $k<=365$ 
 
 Sea $A$ el evento de obtener formas en que todas $k$ personas cumplen años en días diferentes, por tanto $|A|=365.364.363...(365-k+1)$ 
 

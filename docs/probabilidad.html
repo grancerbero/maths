@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 7 Probabilidad | Notas de estadística matemática</title>
+  <title>Capítulo 7 Probabilidad | Apuntes de estadística matemática</title>
   <meta name="description" content="Un libro diseñado para explorar los fundamentos matemáticos que sustentan la ciencia de la estadística. Desde los conceptos básicos de la teoría de la probabilidad hasta las aplicaciones prácticas de la inferencia estadística." />
   <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 7 Probabilidad | Notas de estadística matemática" />
+  <meta property="og:title" content="Capítulo 7 Probabilidad | Apuntes de estadística matemática" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Un libro diseñado para explorar los fundamentos matemáticos que sustentan la ciencia de la estadística. Desde los conceptos básicos de la teoría de la probabilidad hasta las aplicaciones prácticas de la inferencia estadística." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 7 Probabilidad | Notas de estadística matemática" />
+  <meta name="twitter:title" content="Capítulo 7 Probabilidad | Apuntes de estadística matemática" />
   
   <meta name="twitter:description" content="Un libro diseñado para explorar los fundamentos matemáticos que sustentan la ciencia de la estadística. Desde los conceptos básicos de la teoría de la probabilidad hasta las aplicaciones prácticas de la inferencia estadística." />
   
@@ -159,7 +159,7 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Book Example</a></li>
+<li><a href="./">Apuntes de estadística matemática</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a></li>
@@ -195,7 +195,7 @@ div.csl-indent {
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Notas de estadística matemática</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Apuntes de estadística matemática</a>
           </h1>
         </div>
 
@@ -246,7 +246,7 @@ Figura 7.1: Un espacio muestral es como un mundo de canicas con dos eventos <spa
 <div class="definition">
 <p><span id="def:definicioningenuaprobabilidad" class="definition"><strong>Definición 7.2  (Definición ingenua de probabilidad) </strong></span>Sea <span class="math inline">\(A\)</span> un evento para un experimento con un espacio muestral finito <span class="math inline">\(S\)</span> . la probabilidad ingenua de <span class="math inline">\(A\)</span> es</p>
 <p><span class="math display">\[P_{naive} (A) = \frac{|A|}{|S|} = \frac { numero\, de\, resultados\, favorables\, de\, A}{total\, numero\, de\, resultados\, en\, S} \]</span></p>
-<p>en donde |A| es el tamaño (cardinalidad ) del conjunto A</p>
+<p>en donde <span class="math inline">\(|A|\)</span> es el tamaño (cardinalidad ) del conjunto <span class="math inline">\(A\)</span></p>
 </div>
 <p>La definición ingenua es muy restrictiva en que esto requiere que <span class="math inline">\(S\)</span> sea finito, con igual masa para cada uno de las canicas por ejemplo. A a menudo es mal aplicado por personas que asumen resultados igualmente probables sin justificación y presentan argumentos en el sentido de ” o sucederá o no sucederá y no sabemos cual, así que es 50-50”. Por ejemplo, si no sabemos si hay vida en saturno ¿deberíamos concluir que es 50-50? ¿Que pasa con la vida inteligente en saturno, que parece que debería ser estrictamente menos probable que exista alguna forma de vida en saturno ? Sin embargo hay varios tipos importantes de problemas en los que la definición ingenua es aplicable, como cuando hay simetría en el problema, que hace que los resultados sean igualmente probables.<span class="citation">(<a href="#ref-blitzstein2019">K. Blitzstein and Hwang 2019</a>)</span></p>
 </div>
@@ -297,11 +297,11 @@ Figura 7.4: Muestreo sin reemplazo cuando n=5 y k = 2
 </div>
 <p>Los teoremas <a href="probabilidad.html#thm:muestreoconreemplazo">7.2</a> y <a href="probabilidad.html#thm:muestreosinreemplazo">7.3</a> se refieren a <em>conteo</em>, pero cuando la definición de probabilidad ingenua aplica, podemos usarlos para calcular <em>probabilidades</em></p>
 <div class="example">
-<p><span id="exm:problemanacimiento" class="example"><strong>Ejemplo 7.4  (Problema del nacimiento) </strong></span>Existen <span class="math inline">\(k\)</span> personas en un cuarto, asumimos que los cumpleaños de cada persona son igualmente probables para cualquiera de los 365 días del año (se excluye febrero 29), y que los cumpleaños son independientes ( no hay gemelos en el cuarto), cual es la probabilidad que dos o mas personas en el grupo tengan la misma fecha de cumpleaños.</p>
+<p><span id="exm:problemanacimiento" class="example"><strong>Ejemplo 7.4  (Problema del nacimiento) </strong></span>Existen <span class="math inline">\(k\)</span> personas en un cuarto, asumimos que los cumpleaños de cada persona son igualmente probables para cualquiera de los <span class="math inline">\(365\)</span> días del año (se excluye febrero 29), y que los cumpleaños son independientes ( no hay gemelos en el cuarto), cual es la probabilidad que dos o mas personas en el grupo tengan la misma fecha de cumpleaños.</p>
 </div>
 <p><strong>Solución</strong>
-La definición de probabilidad ingenua dice que solo necesitamos contar el numero de formas para asignar cumpleaños a $k4 personas de tal forma que hay dos o mas personas comparten la misma fecha de cumpleaños. Este problema de conteo es un poco complejo, puesto que por ejemplo Emma y Steve comparten la fecha de cumpleaños, o Steve y Naomi o los tres juntos, o tres de ellos pueden compartir la fecha de cumpleaños, mientras otros dos en el grupo comparten fecha de nacimiento diferentes, o un monton de otras posibilidades.</p>
-<p>En vez de eso, contemos el complemento: el numero de maneras para asignar cumpleaños a <span class="math inline">\(k\)</span> personas de tal forma que no haya dos personas que compartan un cumpleaños. Esto equivale a un muestreo de los 365 dias del año <em>sin</em> reemplazo, es decir para la primera persona, hay 365 opciones para elegir el día del año de su cumpleaños, para la segunda persona, quedan 364 opciones, ya que no puede compartir el mismo día de cumpleaños con la primera persona. De manera similar, para la tercera persona quedan 363 opciones, puesto que no puede compartir el mismo día de cumpleaños con las dos primeras personas, de igual forma para la <span class="math inline">\(k-esima\)</span> persona hay <span class="math inline">\(365-k+1\)</span> opciones, por lo tanto el numero total de formas de asignar cumpleaños es por el teorema <a href="probabilidad.html#thm:muestreosinreemplazo">7.3</a> de <span class="math inline">\(365.364.363...(365-k+1)\)</span> para <span class="math inline">\(k&lt;=365\)</span></p>
+La definición de probabilidad ingenua dice que solo necesitamos contar el numero de formas para asignar cumpleaños a <span class="math inline">\(k\)</span> personas de tal forma que hay dos o mas personas comparten la misma fecha de cumpleaños. Este problema de conteo es un poco complejo, puesto que por ejemplo Emma y Steve comparten la fecha de cumpleaños, o Steve y Naomi o los tres juntos, o tres de ellos pueden compartir la fecha de cumpleaños, mientras otros dos en el grupo comparten fecha de nacimiento diferentes, o un monton de otras posibilidades.</p>
+<p>En vez de eso, contemos el complemento: el numero de maneras para asignar cumpleaños a <span class="math inline">\(k\)</span> personas de tal forma que no haya dos personas que compartan un cumpleaños. Esto equivale a un muestreo de los 365 dias del año <em>sin</em> reemplazo, es decir para la primera persona, hay <span class="math inline">\(365\)</span> opciones para elegir el día del año de su cumpleaños, para la segunda persona, quedan 364 opciones, ya que no puede compartir el mismo día de cumpleaños con la primera persona. De manera similar, para la tercera persona quedan 363 opciones, puesto que no puede compartir el mismo día de cumpleaños con las dos primeras personas, de igual forma para la <span class="math inline">\(k-esima\)</span> persona hay <span class="math inline">\(365-k+1\)</span> opciones, por lo tanto el numero total de formas de asignar cumpleaños es por el teorema <a href="probabilidad.html#thm:muestreosinreemplazo">7.3</a> de <span class="math inline">\(365.364.363...(365-k+1)\)</span> para <span class="math inline">\(k&lt;=365\)</span></p>
 <p>Sea <span class="math inline">\(A\)</span> el evento de obtener formas en que todas <span class="math inline">\(k\)</span> personas cumplen años en días diferentes, por tanto <span class="math inline">\(|A|=365.364.363...(365-k+1)\)</span></p>
 <p>El total de formas posibles de asignar cumpleaños en el cuarto es <span class="math inline">\(|S|=365^k\)</span>, a las <span class="math inline">\(k\)</span> personas, ya que cada persona puede tener su cumpleaños en cualquiera de los 365 días del año, de acuerdo al teorema <a href="probabilidad.html#thm:muestreoconreemplazo">7.2</a></p>
 <p>por tanto :</p>
