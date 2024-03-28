@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 6 Final Words | Apuntes de estadística matemática</title>
+  <title>Capítulo 9 Probabilidad condicional | Apuntes de estadística matemática</title>
   <meta name="description" content="Un libro diseñado para explorar los fundamentos matemáticos que sustentan la ciencia de la estadística. Desde los conceptos básicos de la teoría de la probabilidad hasta las aplicaciones prácticas de la inferencia estadística." />
   <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 6 Final Words | Apuntes de estadística matemática" />
+  <meta property="og:title" content="Capítulo 9 Probabilidad condicional | Apuntes de estadística matemática" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Un libro diseñado para explorar los fundamentos matemáticos que sustentan la ciencia de la estadística. Desde los conceptos básicos de la teoría de la probabilidad hasta las aplicaciones prácticas de la inferencia estadística." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 6 Final Words | Apuntes de estadística matemática" />
+  <meta name="twitter:title" content="Capítulo 9 Probabilidad condicional | Apuntes de estadística matemática" />
   
   <meta name="twitter:description" content="Un libro diseñado para explorar los fundamentos matemáticos que sustentan la ciencia de la estadística. Desde los conceptos básicos de la teoría de la probabilidad hasta las aplicaciones prácticas de la inferencia estadística." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="applications.html"/>
-<link rel="next" href="espacios-muestrales-y-conteo.html"/>
+<link rel="prev" href="probabilidad.html"/>
+<link rel="next" href="sourcecode.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -218,18 +218,111 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="final-words" class="section level1 hasAnchor" number="6">
-<h1><span class="header-section-number">Capítulo 6</span> Final Words<a href="final-words.html#final-words" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>We have finished a nice book.</p>
+<div id="probabilidad-condicional" class="section level1 hasAnchor" number="9">
+<h1><span class="header-section-number">Capítulo 9</span> Probabilidad condicional<a href="probabilidad-condicional.html#probabilidad-condicional" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>El condicionamiento es una estrategia de resolución de problemas muy poderosa, que a menudo permite resolver un problema complicado descomponiéndolo en partes manejables con un razonamiento caso por caso. Debido a la importancia central del condicionamiento, decimos que el condicionamiento es el alma de las estadístic</p>
+<div id="definición-de-probabilidad-condicional" class="section level2 hasAnchor" number="9.1">
+<h2><span class="header-section-number">9.1</span> Definición de Probabilidad condicional<a href="probabilidad-condicional.html#definición-de-probabilidad-condicional" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="definition">
+<p><span id="def:probabilidadcondicional" class="definition"><strong>Definición 9.1  (Definicion de probabilidad condicional) </strong></span>si <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> son eventos con <span class="math inline">\(P(B)&gt;0\)</span> entonces la probabilidad condicional de <span class="math inline">\(A\)</span> dado <span class="math inline">\(B\)</span> denotado por <span class="math inline">\(P(A|B)\)</span> se define como :</p>
+<p><span class="math display" id="eq:conditional">\[\begin{equation}
+P(A|B)=\frac{ P(A \cap B)}{P(B)}
+\tag{9.1}
+\end{equation}\]</span></p>
+</div>
+<p>Aquí <span class="math inline">\(A\)</span> es el evento cuya incertidumbre queremos actualizar y <span class="math inline">\(B\)</span> es la evidencia que observamos (o queremos tratar como dada). LLamamos <span class="math inline">\(P(A)\)</span> la probabilidad <em>a priori</em> de <span class="math inline">\(A\)</span> y $P(A|B) la probabilidad <em>a posteriori</em> de A ( <em>a priori</em> antes de actualizar basada en el evidencia y <em>a posteriori</em> significa después de actualizar basada en la evidencia).</p>
+<div class="definition">
+<p><span id="def:condicionaltwocardas" class="definition"><strong>Definición 9.2  (Dos cartas) </strong></span>Una baraja estándar de 52 cartas se baraja bien, se extraen dos cartas aleatoriamente, una a la vez sin reemplazo. Sea <span class="math inline">\(A\)</span> el evento en que la primera carta es un corazón, y <span class="math inline">\(B\)</span> el evento en que la segunda carta es roja. Encontrar <span class="math inline">\(P(A|B)\)</span> y <span class="math inline">\(P(B|A)\)</span></p>
+</div>
+<p><strong>solucion</strong></p>
+<p><span class="math display">\[P(A \cap B)=\frac{13.25}{52.51}=\frac{25}{204}\]</span>
+<span class="math display">\[P(A)=13/52=1/4\]</span>
+<span class="math display">\[P(B)=(26/52).(51/51)=1/2\]</span>
+por tanto <span class="math display">\[P(A|B)= \frac{ P( A \cap B)}{P(B)}=\frac{25/204}{1/2}=25/102\]</span>
+<span class="math display">\[P(B|A)= \frac{ P( A \cap B)}{P(A)}=\frac{25/204}{1/4}=25/51\]</span></p>
+</div>
+<div id="regla-de-bayes-y-probabilidad-total" class="section level2 hasAnchor" number="9.2">
+<h2><span class="header-section-number">9.2</span> Regla de bayes y probabilidad total<a href="probabilidad-condicional.html#regla-de-bayes-y-probabilidad-total" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="theorem">
+<p><span id="thm:probabilidadinterseccion" class="theorem"><strong>Teorema 9.1  (Probabilidad de la intersección de dos eventos) </strong></span>para cualquier par de eventos <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> con probabilidades positivas</p>
+<p><span class="math display" id="eq:interseccioneventos">\[\begin{equation}
+  P( A \cap B) =P(B)P(A|B) = P(A)P(B|A)
+  \tag{9.2}
+\end{equation}\]</span></p>
+</div>
+<div class="theorem">
+<p><span id="thm:probabilidadinterseccionneventos" class="theorem"><strong>Teorema 9.2  (Probabilidad de la intersección de n eventos) </strong></span>Para cualquier eventos <span class="math inline">\(A_1,...,A_n\)</span> con probabilidades positivas</p>
+<p><span class="math display" id="eq:interseccionneventos">\[\begin{equation}
+  P( A_1, A_2, A_3,...,A_n) =P(A_1)P(A_2|A_1)P(A_3|A_1,A_2)...P(A_n|A_1,...,A_{n-1})
+  \tag{9.3}
+\end{equation}\]</span></p>
+<p>Las comas representan int</p>
+<p>ersecciones. Por ejemplo <span class="math inline">\(P(A_3|A_1,A_2)\)</span> es la probabilidad de que ocurra <span class="math inline">\(A_3\)</span> dado que ambos <span class="math inline">\(A_1\)</span> y <span class="math inline">\(A_2\)</span> ocurran.</p>
+</div>
+<div class="theorem">
+<p><span id="thm:regladebayes" class="theorem"><strong>Teorema 9.3  (Regla de Bayes) </strong></span>para cualquier par de eventos <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> con probabilidades positivas</p>
+<p><span class="math display" id="eq:eqregladebayes">\[\begin{equation}
+  P( A|B) =\frac{P(B|A)P(A)}{P(B)}
+  \tag{9.4}
+\end{equation}\]</span></p>
+</div>
+<div class="theorem">
+<p><span id="thm:lotp" class="theorem"><strong>Teorema 9.4  (Ley de la probabilidad total) </strong></span>sea <span class="math inline">\(A_1,...,A_n\)</span> partición del espacio muestral <span class="math inline">\(S\)</span> , los <span class="math inline">\(A_i\)</span> son eventos disjuntos y <span class="math inline">\(\bigcup_{i=1}^{n}A_i=S\)</span></p>
+<p><span class="math display" id="eq:eqlotp">\[\begin{equation}
+  P( B) =\sum_{i=1}^{n}P(B|A_i)P(A_i)
+  \tag{9.5}
+\end{equation}\]</span></p>
+</div>
+<p><strong>Demostracion</strong>
+Puesto que <span class="math inline">\(A_i\)</span> forman particiones de <span class="math inline">\(S\)</span>, podemos descomponer <span class="math inline">\(B\)</span> como
+<span class="math display">\[B=(B \cap A_1) \cup  (B \cap A_2) \cup ...\cup (B \cap A_n)  \]</span>
+Por tanto</p>
+<span class="math display">\[P(B)=P(B \cap A_1) + ... + P (B \cap A_n)=P(B/A_1)P(A_1)+...+P(B/A_n)P(A_n)\]</span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-10"></span>
+<img src="images/particion.drawio.png" alt="Particion $A_i$" width="60%" />
+<p class="caption">
+Figura 9.1: Particion <span class="math inline">\(A_i\)</span>
+</p>
+</div>
+<div class="example">
+<p><span id="exm:monedaaleatoria" class="example"><strong>Ejemplo 9.1  (moneda aleatoria) </strong></span>Tenemos una moneda justa y otra moneda sesgada en la cual sale cara con probabilidad de <span class="math inline">\(3/4\)</span> , se elige una moneda al azar y se tira tres veces. Si se obtiene cara las tres veces , cual es la probabilidad de que la moneda elegida sea la justa?</p>
+</div>
+<p><strong>Solución</strong></p>
+<p>Sea <span class="math inline">\(A\)</span> el evento en que la moneda escogida se obtiene cara tres veces y sea <span class="math inline">\(F\)</span> el evento en que elegimos la moneda justa, por tanto estamos interesados en la <span class="math inline">\(P(F|A)\)</span>, es más fácil encontrar P(A|F)
+<span class="math display">\[\begin{align*}
+P(F|A) &amp;= \frac{P(A|F) P(F)}{P(A)} \\
+    &amp;= \frac{P(A|F) P(F)}{P(A|F) P(F) + P(A|F^c) P(F^c)} \\
+    &amp;= \frac{(1/2)^3 \cdot 1/2}{(1/2)^3 \cdot 1/2 + (3/4)^3 \cdot 1/2} \\
+    &amp;\approx 0.23.
+\end{align*}\]</span></p>
+<div class="example">
+<p><span id="exm:monedaaleatoria" class="example"><strong>Ejemplo 9.1  (moneda aleatoria) </strong></span>Jimmy esta siendo pruebas diagnosticas para saber si tiene la enfermedad llamada condicionitis, una condición médica que aflige al <span class="math inline">\(1\%\)</span> de la población, su resultado es positivo, es decir , el test afirma que Jimmy tiene la enfermedad. Sea <span class="math inline">\(D\)</span> el evento en que Jimmy tiene la enfermedad , sea <span class="math inline">\(T\)</span> el evento que el es positivo.</p>
+<p>Supongamos que los test tienen una precisión del <span class="math inline">\(95\%\)</span> es decir asumimos en esta problema que <span class="math inline">\(P(T|D)=0.95\)</span> y <span class="math inline">\(P(T^c|D^c)=0.95\)</span> la cantidad de <span class="math inline">\(P(T|D)\)</span> se conoce como la <em>sensitividad</em> o <em>tasa de verdadero positivo</em> de la prueba y <span class="math inline">\(P(T^c|D^c)\)</span> es conocida como la <em>especificidad</em> o _$$<em>tasa de verdaderos negativos</em> de la prueba.</p>
+<p>Encontrar la probabilidad de que Jimmy tiene <em>condicionitis</em> dado el resultado provisto por la prueba.</p>
+</div>
+<p><strong>Solución</strong></p>
+<p>Queremos hallar <span class="math inline">\(P(D|T)\)</span>
+<span class="math display">\[\begin{align*}
+P(D|T) &amp;= \frac{P(T|D)P(D)}{P(T)} \\
+&amp;= \frac{P(T|D)P(D)}{P(T|D)P(D) + P(T|D^c)P(D^c) } \\
+&amp;= \frac{0.95 . 0.01}{ 0.95.0.01 + 0.05*0.99 } \\
+&amp;\approx 0.16
+\end{align*}\]</span></p>
+<p>Por tanto hay 16% de que Jimmy tenga la enfermedad, dado que el resultado es positivo, aunque la prueba parece ser confiable.</p>
+<p>A muchas personas les sorprende que la probabilidad condicional de tener la enfermedad con un resultado positivo en la prueba sea de solo el 16%, a pesar de que la prueba tiene una precisión del 95%. La clave para comprender esta probabilidad posterior sorprendentemente alta es darse cuenta de que hay dos factores en juego: la evidencia de la prueba y nuestra información previa sobre la prevalencia de la enfermedad. La probabilidad condicional refleja un equilibrio entre estos dos factores, sopesando adecuadamente la rareza de la enfermedad frente a la rareza de los resultados erróneos de una prueba.</p>
 
 </div>
+</div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="applications.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="espacios-muestrales-y-conteo.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="probabilidad.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="sourcecode.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -260,7 +353,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/05-summary.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/12-probabilidad_condicional.Rmd",
 "text": "Edit"
 },
 "history": {

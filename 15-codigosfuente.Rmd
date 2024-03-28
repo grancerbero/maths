@@ -1,0 +1,18 @@
+# (APPENDIX) Apéndices {-} 
+
+Codigo fuente Python{#sourcecode}
+==========
+
+##  Codigo python para dibujar probabilidad    {#lbl_src_paradoja_cumpleanos-id}
+Código fuente realizado en python para dibujar la probabilidad en función de $k$ de que al menos dos fechas de nacimiento de un conjunto de personas coinciden, $k$ es el numero de personas
+
+```{python src_paradoja_cumpleanos, file='sourcecode/paradojacumpleanos.py', eval=FALSE}
+```
+
+
+
+##  regresion lineal   {#lbl_src_paradoja_cumpleanos-id1}
+
+```{r foo,fig.cap='(ref:foo)'}
+plot(cars)  # a scatterplot
+```

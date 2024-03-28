@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Codigos fuente | Apuntes de estadística matemática</title>
+  <title>Apéndices | Apuntes de estadística matemática</title>
   <meta name="description" content="Un libro diseñado para explorar los fundamentos matemáticos que sustentan la ciencia de la estadística. Desde los conceptos básicos de la teoría de la probabilidad hasta las aplicaciones prácticas de la inferencia estadística." />
   <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Codigos fuente | Apuntes de estadística matemática" />
+  <meta property="og:title" content="Apéndices | Apuntes de estadística matemática" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Un libro diseñado para explorar los fundamentos matemáticos que sustentan la ciencia de la estadística. Desde los conceptos básicos de la teoría de la probabilidad hasta las aplicaciones prácticas de la inferencia estadística." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Codigos fuente | Apuntes de estadística matemática" />
+  <meta name="twitter:title" content="Apéndices | Apuntes de estadística matemática" />
   
   <meta name="twitter:description" content="Un libro diseñado para explorar los fundamentos matemáticos que sustentan la ciencia de la estadística. Desde los conceptos básicos de la teoría de la probabilidad hasta las aplicaciones prácticas de la inferencia estadística." />
   
@@ -181,7 +181,10 @@ div.csl-indent {
 <li class="chapter" data-level="7.2" data-path="probabilidad.html"><a href="probabilidad.html#definicion-ingenua-de-probabilidad-naive-definition-of-probability"><i class="fa fa-check"></i><b>7.2</b> Definicion ingenua de probabilidad (Naive definition of probability)</a></li>
 <li class="chapter" data-level="7.3" data-path="probabilidad.html"><a href="probabilidad.html#probabilidad-y-conteo"><i class="fa fa-check"></i><b>7.3</b> Probabilidad y conteo</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="codigos-fuente.html"><a href="codigos-fuente.html"><i class="fa fa-check"></i>Codigos fuente</a></li>
+<li class="chapter" data-level="" data-path="apéndices.html"><a href="apéndices.html"><i class="fa fa-check"></i>Apéndices</a>
+<ul>
+<li class="chapter" data-level="7.4" data-path="apéndices.html"><a href="apéndices.html#lbl_src_paradoja_cumpleanos-id"><i class="fa fa-check"></i><b>7.4</b> Codigo python para dibujar probabilidad</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -203,35 +206,36 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="codigos-fuente" class="section level1 unnumbered hasAnchor">
-<h1>Codigos fuente<a href="codigos-fuente.html#codigos-fuente" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Código python para dibujar probabilidad {#lbl_src_paradoja_cumpleanos-id}
-Código fuente realizado en python para dibujar la probabilidad en función de <span class="math inline">\(k\)</span> de que al menos dos fechas de nacimiento de un conjunto de personas coinciden, <span class="math inline">\(k\)</span> es el numero de personas</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="codigos-fuente.html#cb4-1" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb4-2"><a href="codigos-fuente.html#cb4-2" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="codigos-fuente.html#cb4-3" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="codigos-fuente.html#cb4-4" tabindex="-1"></a><span class="kw">def</span> calcular_probabilidad(k):</span>
-<span id="cb4-5"><a href="codigos-fuente.html#cb4-5" tabindex="-1"></a>    numerador <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb4-6"><a href="codigos-fuente.html#cb4-6" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">365</span> <span class="op">-</span> k <span class="op">+</span> <span class="dv">1</span>, <span class="dv">366</span>):</span>
-<span id="cb4-7"><a href="codigos-fuente.html#cb4-7" tabindex="-1"></a>        numerador <span class="op">*=</span> i</span>
-<span id="cb4-8"><a href="codigos-fuente.html#cb4-8" tabindex="-1"></a>    denominador <span class="op">=</span> <span class="dv">365</span> <span class="op">**</span> k</span>
-<span id="cb4-9"><a href="codigos-fuente.html#cb4-9" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">1</span> <span class="op">-</span> numerador <span class="op">/</span> denominador</span>
-<span id="cb4-10"><a href="codigos-fuente.html#cb4-10" tabindex="-1"></a></span>
-<span id="cb4-11"><a href="codigos-fuente.html#cb4-11" tabindex="-1"></a>k_values <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">101</span>))  <span class="co"># Valores de k de 1 a 100</span></span>
-<span id="cb4-12"><a href="codigos-fuente.html#cb4-12" tabindex="-1"></a>probabilidades <span class="op">=</span> [calcular_probabilidad(k) <span class="cf">for</span> k <span class="kw">in</span> k_values]</span>
-<span id="cb4-13"><a href="codigos-fuente.html#cb4-13" tabindex="-1"></a></span>
-<span id="cb4-14"><a href="codigos-fuente.html#cb4-14" tabindex="-1"></a>plt.plot(k_values, probabilidades, marker<span class="op">=</span><span class="st">&#39;.&#39;</span>, linestyle<span class="op">=</span><span class="st">&#39;&#39;</span>)</span>
-<span id="cb4-15"><a href="codigos-fuente.html#cb4-15" tabindex="-1"></a>plt.xlabel(<span class="st">&#39;Número de personas (k)&#39;</span>)</span>
-<span id="cb4-16"><a href="codigos-fuente.html#cb4-16" tabindex="-1"></a>plt.ylabel(<span class="st">&#39;Probabilidad de al menos una coincidencia&#39;</span>)</span>
-<span id="cb4-17"><a href="codigos-fuente.html#cb4-17" tabindex="-1"></a>plt.title(<span class="st">&#39;Probabilidad de coincidencia de cumpleaños vs Número de personas&#39;</span>)</span>
-<span id="cb4-18"><a href="codigos-fuente.html#cb4-18" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
-<span id="cb4-19"><a href="codigos-fuente.html#cb4-19" tabindex="-1"></a></span>
-<span id="cb4-20"><a href="codigos-fuente.html#cb4-20" tabindex="-1"></a><span class="co"># Línea en el 50%</span></span>
-<span id="cb4-21"><a href="codigos-fuente.html#cb4-21" tabindex="-1"></a>plt.axhline(y<span class="op">=</span><span class="fl">0.5</span>, color<span class="op">=</span><span class="st">&#39;r&#39;</span>, linestyle<span class="op">=</span><span class="st">&#39;-&#39;</span>)</span>
-<span id="cb4-22"><a href="codigos-fuente.html#cb4-22" tabindex="-1"></a><span class="co">#plt.show()</span></span>
-<span id="cb4-23"><a href="codigos-fuente.html#cb4-23" tabindex="-1"></a>plt.savefig(<span class="st">&#39;grafico_probabilidad_cumpleanos.png&#39;</span>)</span></code></pre></div>
+<div id="apéndices" class="section level1 unnumbered hasAnchor">
+<h1>Apéndices<a href="apéndices.html#apéndices" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="lbl_src_paradoja_cumpleanos-id" class="section level2 hasAnchor" number="7.4">
+<h2><span class="header-section-number">7.4</span> Codigo python para dibujar probabilidad<a href="apéndices.html#lbl_src_paradoja_cumpleanos-id" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Código fuente realizado en python para dibujar la probabilidad en función de <span class="math inline">\(k\)</span> de que al menos dos fechas de nacimiento de un conjunto de personas coinciden, <span class="math inline">\(k\)</span> es el numero de personas</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="apéndices.html#cb4-1" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb4-2"><a href="apéndices.html#cb4-2" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="apéndices.html#cb4-3" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="apéndices.html#cb4-4" tabindex="-1"></a><span class="kw">def</span> calcular_probabilidad(k):</span>
+<span id="cb4-5"><a href="apéndices.html#cb4-5" tabindex="-1"></a>    numerador <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb4-6"><a href="apéndices.html#cb4-6" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">365</span> <span class="op">-</span> k <span class="op">+</span> <span class="dv">1</span>, <span class="dv">366</span>):</span>
+<span id="cb4-7"><a href="apéndices.html#cb4-7" tabindex="-1"></a>        numerador <span class="op">*=</span> i</span>
+<span id="cb4-8"><a href="apéndices.html#cb4-8" tabindex="-1"></a>    denominador <span class="op">=</span> <span class="dv">365</span> <span class="op">**</span> k</span>
+<span id="cb4-9"><a href="apéndices.html#cb4-9" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">1</span> <span class="op">-</span> numerador <span class="op">/</span> denominador</span>
+<span id="cb4-10"><a href="apéndices.html#cb4-10" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="apéndices.html#cb4-11" tabindex="-1"></a>k_values <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">101</span>))  <span class="co"># Valores de k de 1 a 100</span></span>
+<span id="cb4-12"><a href="apéndices.html#cb4-12" tabindex="-1"></a>probabilidades <span class="op">=</span> [calcular_probabilidad(k) <span class="cf">for</span> k <span class="kw">in</span> k_values]</span>
+<span id="cb4-13"><a href="apéndices.html#cb4-13" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="apéndices.html#cb4-14" tabindex="-1"></a>plt.plot(k_values, probabilidades, marker<span class="op">=</span><span class="st">&#39;.&#39;</span>, linestyle<span class="op">=</span><span class="st">&#39;&#39;</span>)</span>
+<span id="cb4-15"><a href="apéndices.html#cb4-15" tabindex="-1"></a>plt.xlabel(<span class="st">&#39;Número de personas (k)&#39;</span>)</span>
+<span id="cb4-16"><a href="apéndices.html#cb4-16" tabindex="-1"></a>plt.ylabel(<span class="st">&#39;Probabilidad de al menos una coincidencia&#39;</span>)</span>
+<span id="cb4-17"><a href="apéndices.html#cb4-17" tabindex="-1"></a>plt.title(<span class="st">&#39;Probabilidad de coincidencia de cumpleaños vs Número de personas&#39;</span>)</span>
+<span id="cb4-18"><a href="apéndices.html#cb4-18" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb4-19"><a href="apéndices.html#cb4-19" tabindex="-1"></a></span>
+<span id="cb4-20"><a href="apéndices.html#cb4-20" tabindex="-1"></a><span class="co"># Línea en el 50%</span></span>
+<span id="cb4-21"><a href="apéndices.html#cb4-21" tabindex="-1"></a>plt.axhline(y<span class="op">=</span><span class="fl">0.5</span>, color<span class="op">=</span><span class="st">&#39;r&#39;</span>, linestyle<span class="op">=</span><span class="st">&#39;-&#39;</span>)</span>
+<span id="cb4-22"><a href="apéndices.html#cb4-22" tabindex="-1"></a><span class="co">#plt.show()</span></span>
+<span id="cb4-23"><a href="apéndices.html#cb4-23" tabindex="-1"></a>plt.savefig(<span class="st">&#39;grafico_probabilidad_cumpleanos.png&#39;</span>)</span></code></pre></div>
 <p>dfsfsd</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="codigos-fuente.html#cb5-1" tabindex="-1"></a><span class="fu">plot</span>(cars)  <span class="co"># a scatterplot</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="apéndices.html#cb5-1" tabindex="-1"></a><span class="fu">plot</span>(cars)  <span class="co"># a scatterplot</span></span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:foo"></span>
 <img src="Notas-de-Estadistica-matem%C3%A1tica-_files/figure-html/foo-1.png" alt="(ref:foo)" width="672" />
 <p class="caption">
@@ -239,6 +243,7 @@ Figura 7.6: (ref:foo)
 </p>
 </div>
 
+</div>
 </div>
             </section>
 

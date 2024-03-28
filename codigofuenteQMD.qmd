@@ -1,5 +1,9 @@
 # Codigos fuente {-}
-```{python,  eval=FALSE, }
+Código fuente realizado en python para  dibujar la probabilidad en funcion de $k$ de que al menos dos fechas de nacimiento de un conjunto de personas  coinciden, $k$ es el numero de personas
+
+
+```{python src_paradoja_cumpleanos,  eval=FALSE, }
+#| label: resumen
 import matplotlib.pyplot as plt
 def calcular_probabilidad(k):
     numerador = 1
@@ -22,15 +26,5 @@ plt.grid(True)
 plt.axhline(y=0.5, color='r', linestyle='-')
 plt.show()
 ```
-```{r}
-#| my-chunk, echo = FALSE, fig.width = 10,
-#| fig.cap = "This is a long long
-#|   long long caption."
-
-plot(cars)
-```
 
 
-```{r}
-rnorm(10)
-```

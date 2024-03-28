@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 7 Espacios muestrales y conteo | Apuntes de estadística matemática</title>
+  <meta name="description" content="Un libro diseñado para explorar los fundamentos matemáticos que sustentan la ciencia de la estadística. Desde los conceptos básicos de la teoría de la probabilidad hasta las aplicaciones prácticas de la inferencia estadística." />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 7 Espacios muestrales y conteo | Apuntes de estadística matemática" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Un libro diseñado para explorar los fundamentos matemáticos que sustentan la ciencia de la estadística. Desde los conceptos básicos de la teoría de la probabilidad hasta las aplicaciones prácticas de la inferencia estadística." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 7 Espacios muestrales y conteo | Apuntes de estadística matemática" />
+  
+  <meta name="twitter:description" content="Un libro diseñado para explorar los fundamentos matemáticos que sustentan la ciencia de la estadística. Desde los conceptos básicos de la teoría de la probabilidad hasta las aplicaciones prácticas de la inferencia estadística." />
+  
+
+<meta name="author" content="Hector Henry Jurado Soto" />
+
+
+<meta name="date" content="2024-03-28" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="final-words.html"/>
+<link rel="next" href="probabilidad.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Apuntes de estadística matemática</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
+<li class="chapter" data-level="3" data-path="literature.html"><a href="literature.html"><i class="fa fa-check"></i><b>3</b> Literature</a></li>
+<li class="chapter" data-level="4" data-path="methods.html"><a href="methods.html"><i class="fa fa-check"></i><b>4</b> Methods</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="methods.html"><a href="methods.html#math-example"><i class="fa fa-check"></i><b>4.1</b> math example</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>5</b> Applications</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="applications.html"><a href="applications.html#example-one"><i class="fa fa-check"></i><b>5.1</b> Example one</a></li>
+<li class="chapter" data-level="5.2" data-path="applications.html"><a href="applications.html#example-two"><i class="fa fa-check"></i><b>5.2</b> Example two</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>6</b> Final Words</a></li>
+<li class="chapter" data-level="7" data-path="espacios-muestrales-y-conteo.html"><a href="espacios-muestrales-y-conteo.html"><i class="fa fa-check"></i><b>7</b> Espacios muestrales y conteo</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="espacios-muestrales-y-conteo.html"><a href="espacios-muestrales-y-conteo.html#espacios-muestrales"><i class="fa fa-check"></i><b>7.1</b> Espacios muestrales</a></li>
+<li class="chapter" data-level="7.2" data-path="espacios-muestrales-y-conteo.html"><a href="espacios-muestrales-y-conteo.html#definicion-ingenua-de-probabilidad-naive-definition-of-probability"><i class="fa fa-check"></i><b>7.2</b> Definicion ingenua de probabilidad (Naive definition of probability)</a></li>
+<li class="chapter" data-level="7.3" data-path="espacios-muestrales-y-conteo.html"><a href="espacios-muestrales-y-conteo.html#probabilidad-y-conteo"><i class="fa fa-check"></i><b>7.3</b> Probabilidad y conteo</a></li>
+<li class="chapter" data-level="7.4" data-path="espacios-muestrales-y-conteo.html"><a href="espacios-muestrales-y-conteo.html#ajuste-por-sobreconteo-adjusting-or-overcounting"><i class="fa fa-check"></i><b>7.4</b> Ajuste por sobreconteo (Adjusting or overcounting)</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="probabilidad.html"><a href="probabilidad.html"><i class="fa fa-check"></i><b>8</b> Probabilidad</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="probabilidad.html"><a href="probabilidad.html#definición-general-de-probabilidad"><i class="fa fa-check"></i><b>8.1</b> Definición general de Probabilidad</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="probabilidad-condicional.html"><a href="probabilidad-condicional.html"><i class="fa fa-check"></i><b>9</b> Probabilidad condicional</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="probabilidad-condicional.html"><a href="probabilidad-condicional.html#definición-de-probabilidad-condicional"><i class="fa fa-check"></i><b>9.1</b> Definición de Probabilidad condicional</a></li>
+<li class="chapter" data-level="9.2" data-path="probabilidad-condicional.html"><a href="probabilidad-condicional.html#regla-de-bayes-y-probabilidad-total"><i class="fa fa-check"></i><b>9.2</b> Regla de bayes y probabilidad total</a></li>
+</ul></li>
+<li class="appendix"><span><b>Apéndices</b></span></li>
+<li class="chapter" data-level="A" data-path="sourcecode.html"><a href="sourcecode.html"><i class="fa fa-check"></i><b>A</b> Codigo fuente Python</a>
+<ul>
+<li class="chapter" data-level="A.1" data-path="sourcecode.html"><a href="sourcecode.html#lbl_src_paradoja_cumpleanos-id"><i class="fa fa-check"></i><b>A.1</b> Codigo python para dibujar probabilidad</a></li>
+<li class="chapter" data-level="A.2" data-path="sourcecode.html"><a href="sourcecode.html#lbl_src_paradoja_cumpleanos-id1"><i class="fa fa-check"></i><b>A.2</b> regresion lineal</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Apuntes de estadística matemática</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="espacios-muestrales-y-conteo" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">Capítulo 7</span> Espacios muestrales y conteo<a href="espacios-muestrales-y-conteo.html#espacios-muestrales-y-conteo" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="espacios-muestrales" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Espacios muestrales<a href="espacios-muestrales-y-conteo.html#espacios-muestrales" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="definition">
+<p><span id="def:muestral" class="definition"><strong>Definición 7.1  (Espacio muestral y evento) </strong></span>El <em>espacio muestral</em> <span class="math inline">\(S\)</span> de un experimento es el conjunto de todos los posibles resultados de un experimento. Un <em>evento</em> <span class="math inline">\(A\)</span> es un subconjunto del espacio muestral <span class="math inline">\(S\)</span> y se dice que <span class="math inline">\(A\)</span> <em>ocurrió</em> si el resultado actual pertenece a <span class="math inline">\(A\)</span></p>
+</div>
+<p><span class="citation">(<a href="#ref-blitzstein2019">K. Blitzstein and Hwang 2019</a>)</span></p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-3"></span>
+<img src="images/pebbles.png" alt="Un espacio muestral es como  un mundo de canicas con dos eventos $A$ y $B$" width="30%" />
+<p class="caption">
+Figura 7.1: Un espacio muestral es como un mundo de canicas con dos eventos <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span>
+</p>
+</div>
+<p>El espacio muestral de un experimento puede ser finito o infinito contable o infinito incontable, cuando el espacio muestral es finito puede visualizarse como un mundo de canicas, como muestra la figura. Cada canica representa un resultado, y un evento es un conjunto de canicas. Realizar un experimento es equivalente a escoger una canica en forma aleatoria.</p>
+<p>Por ejemplo, sea <span class="math inline">\(S\)</span> el espacio muestral de un experimento y sean <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> eventos. Entonces, la unión <span class="math inline">\(A \cup B\)</span> es el evento que ocurre si y solo si al menos uno de <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> ocurre, la intersección <span class="math inline">\(A \cap B\)</span> es el evento que ocurre si y solo si ambos <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> ocurren, y el complemento <span class="math inline">\(A^c\)</span> es el evento que ocurre si y solo si <span class="math inline">\(A\)</span> no ocurre. También tenemos las leyes de De Morgan:</p>
+<p><span class="math display" id="eq:morgan">\[\begin{equation}
+(A \cup B)^c = A^c \cap B^c \textrm{ and } (A \cap B)^c = A^c \cup B^c
+\tag{7.1}
+\end{equation}\]</span></p>
+<p>puesto que decir que no es el caso que al menos uno de <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> ocurra es lo mismo que decir que <span class="math inline">\(A^c\)</span> no ocurre y <span class="math inline">\(B^c\)</span> no ocurre, y decir que no es el caso que ambos ocurran es lo mismo que decir que al menos uno no ocurre. Resultados análogos se mantienen para uniones e intersecciones de más de dos eventos.</p>
+<p>En el ejemplo mostrado en la Figura, <span class="math inline">\(A\)</span> es un conjunto de <span class="math inline">\(n\)</span> canicas, <span class="math inline">\(B\)</span> es un conjunto de <span class="math inline">\(m\)</span> canicas, <span class="math inline">\(A \cup B\)</span> consiste en los <span class="math inline">\(n + m\)</span> canicas en <span class="math inline">\(A\)</span> o <span class="math inline">\(B\)</span> (incluyendo el canicas que está en ambos), <span class="math inline">\(A \cap B\)</span> consiste en las canicas que está en ambos <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span>, y <span class="math inline">\(A^c\)</span> consiste en las <span class="math inline">\(n\)</span> canicas que no están en <span class="math inline">\(A\)</span>.</p>
+<p>En el ejemplo de la figura, <span class="math inline">\(A\)</span> es un conjunto de 5 canicas,<span class="math inline">\(B\)</span> es un conjunto de 4 canicas, <span class="math inline">\(A \cup B\)</span> es un conjunto de 8 canicas, incluyendo la que esta en los dos conjuntos, <span class="math inline">\(A \cap B\)</span> es un conjunto de 1 canica y <span class="math inline">\(A^c\)</span> consiste en cuatro canicas que no están en <span class="math inline">\(A\)</span></p>
+<div class="example">
+<p><span id="exm:coins" class="example"><strong>Ejemplo 7.1  (Espacio muestral y evento) </strong></span>Una moneda es lanzada 10 veces , se escribirá heads como <span class="math inline">\(H\)</span> y tails como <span class="math inline">\(T\)</span>, un posible resultado es <span class="math inline">\(HHHTHHTTHT\)</span>, el espacio muestral es el conjunto de todas las posibles cadenas de longitud 10 de <span class="math inline">\(H&#39;s\)</span> y <span class="math inline">\(T&#39;s\)</span>.</p>
+<p>Se puede codificar <span class="math inline">\(H\)</span> como <span class="math inline">\(1\)</span> y <span class="math inline">\(T\)</span> como <span class="math inline">\(0\)</span>, asi que un resultado es una secuencia <span class="math inline">\((s_1,s_2,s_3, ..., s_{10}))\)</span> con <span class="math inline">\(s_j \in \{0, 1\}\)</span>, y el espacio muestral es el conjunto de todas esas secuencias.</p>
+<p>Veamos ahora algunos eventos:</p>
+<ol style="list-style-type: decimal">
+<li>Sea <span class="math inline">\(A_1\)</span> el evento en que la primer lanzamiento es Head</li>
+</ol>
+<p><span class="math display">\[ A_1 = {(1,s_2, ...,s_{10}) }: s_j \in\ \{0,1\} , 2 \leq j  \leq  10\]</span></p>
+<p>Este es un subconjunto del espacio muestral, o sea un evento, decir que <span class="math inline">\(A_1\)</span> ocurre es lo mismo que decir que el primer lanzamiento es Head. Similarmente se dice que <span class="math inline">\(A_j\)</span> es el evento en que el <span class="math inline">\(j_{esimo}\)</span> lanzamiento es Head, donde j =2,3,…,10.</p>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Sea <span class="math inline">\(B\)</span> el evento en el que al menos un lanzamiento fue head <span class="math display">\[ B =   \bigcup_{j=1}^{10} A_j  \]</span></p></li>
+<li><p>Sea <span class="math inline">\(C\)</span> el evento en el que todos los lanzamientos fueron heads <span class="math display">\[ C =   \bigcap_{j=1}^{10} A_j  \]</span></p></li>
+<li><p>Sea <span class="math inline">\(D\)</span> el evento en que hubo al menos dos Heads consecutivos</p></li>
+</ol>
+<p><span class="math display">\[ C =   \bigcup_{j=1}^{9} ( A_j \cap A_{j+1} )   \]</span></p>
+</div>
+</div>
+<div id="definicion-ingenua-de-probabilidad-naive-definition-of-probability" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> Definicion ingenua de probabilidad (Naive definition of probability)<a href="espacios-muestrales-y-conteo.html#definicion-ingenua-de-probabilidad-naive-definition-of-probability" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Históricamente, la definición de probabilidad de un evento fue contar el número de maneras en que evento puede suceder y dividir por el número total de resultados posibles del experimento.</p>
+<div class="definition">
+<p><span id="def:definicioningenuaprobabilidad" class="definition"><strong>Definición 7.2  (Definición ingenua de probabilidad) </strong></span>Sea <span class="math inline">\(A\)</span> un evento para un experimento con un espacio muestral finito <span class="math inline">\(S\)</span> . la probabilidad ingenua de <span class="math inline">\(A\)</span> es</p>
+<p><span class="math display" id="eq:eqnaive">\[\begin{equation}
+P_{naive} (A) = \frac{|A|}{|S|} = \frac { numero\, de\, resultados\, favorables\, de\, A}{total\, numero\, de\, resultados\, en\, S}
+\tag{7.2}
+\end{equation}\]</span></p>
+<p>en donde <span class="math inline">\(|A|\)</span> es el tamaño (cardinalidad ) del conjunto <span class="math inline">\(A\)</span></p>
+</div>
+<p>La definición ingenua es muy restrictiva en que esto requiere que <span class="math inline">\(S\)</span> sea finito, con igual masa para cada uno de las canicas por ejemplo. A a menudo es mal aplicado por personas que asumen resultados igualmente probables sin justificación y presentan argumentos en el sentido de ” o sucederá o no sucederá y no sabemos cual, así que es 50-50”. Por ejemplo, si no sabemos si hay vida en saturno ¿deberíamos concluir que es 50-50? ¿Que pasa con la vida inteligente en saturno, que parece que debería ser estrictamente menos probable que exista alguna forma de vida en saturno ? Sin embargo hay varios tipos importantes de problemas en los que la definición ingenua es aplicable, como cuando hay simetría en el problema, que hace que los resultados sean igualmente probables.<span class="citation">(<a href="#ref-blitzstein2019">K. Blitzstein and Hwang 2019</a>)</span></p>
+</div>
+<div id="probabilidad-y-conteo" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">7.3</span> Probabilidad y conteo<a href="espacios-muestrales-y-conteo.html#probabilidad-y-conteo" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Calcular la probabilidad ingenua de un evento <span class="math inline">\(A\)</span> implica contar el numero de canicas en <span class="math inline">\(A\)</span> y el numero de canicas en el espacio muestral <span class="math inline">\(S\)</span>. A menudo estos conjuntos con extremadamente grandes, por lo que podría ser tedioso o inviable contar las posibilidades uno a uno. Para abordar este desafío existen algunas técnicas de conteo.</p>
+<div class="theorem">
+<p><span id="thm:reglamultiplicacion" class="theorem"><strong>Teorema 7.1  (Regla de la multiplicación) </strong></span>Consideremos un experimento compuesto consistiendo en dos sub-experimentos, experimento <span class="math inline">\(A\)</span> y experimento <span class="math inline">\(B\)</span>. supongamos que el experimento <span class="math inline">\(A\)</span> tiene <span class="math inline">\(a\)</span> posibles resultados y para cada uno de esos resultados el experimento <span class="math inline">\(B\)</span> tiene <span class="math inline">\(b\)</span> posibles resultados, entonces el experimento compuesto tiene <span class="math inline">\(ab\)</span> posibles resultados</p>
+</div>
+<p>Imaginemos un diagrama como muestra la figura, consta de</p>
+<div class="example">
+<p><span id="exm:ejemplomultiplicacion" class="example"><strong>Ejemplo 7.2  (conos de helado) </strong></span>Supongamos que estamos comprando un helado en cono, se puede escoger entre un cake(pastel) o un waffle(oblea) y cada uno de ellos puede tener chocolate , vainilla o fresa como su sabor</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-4"></span>
+<img src="images/reglademultiplicacion1.drawio.png" alt="Diagrama de árbol para un cono de helado" width="80%" />
+<p class="caption">
+Figura 7.2: Diagrama de árbol para un cono de helado
+</p>
+</div>
+<p>Por la regla de la multiplicación existen <span class="math inline">\(2.3=3.2=6\)</span> posibilidades. Pero debemos tener en cuenta algunas cosas como:</p>
+<ul>
+<li><p>No importa si se elige primero el tipo de cono ( “quiero un cono de waffles con helado de chocolate” ) o el sabor (“Quiero un cono de chocolate en un cono de waffles”), de cualquier forma hay posibilidades.</p></li>
+<li><p>No importa si los mismos sabores están disponibles en un cono de pastel que en un cono de oblea, Lo que importa es que hay exactamente tres opciones de sabor para cada opción de cono, si por algún motivo estuviese prohibido tener un sabor de chocolate en un cono de oblea por ejemplo ( y sin sustituto, ) , hay posibilidades pero la regla de multiplicación no aplicaría.</p></li>
+</ul>
+<p>Podemos usar la regla de multiplicación para llegar a fórmulas de muestreo con y sin reemplazo. Muchos experimentos en probabilidad y estadística pueden interpretarse en un de estos dos contextos, por lo que es atractivo que ambas fórmulas seigan directamente el mismo principio básico de conteo.</p>
+<div class="theorem">
+<p><span id="thm:muestreoconreemplazo" class="theorem"><strong>Teorema 7.2  (Muestreo con reemplazo) </strong></span>Consideremos <span class="math inline">\(n\)</span> objetos y tomamos <span class="math inline">\(k\)</span> de ellos, una a la vez con reemplazo( es decir elegir un determinado objeto no impide que se elija nuevamente). entonces hay <span class="math inline">\(n^k\)</span> posibles resultados</p>
+</div>
+<p>Por ejemplo, imaginemos que un frasco con <span class="math inline">\(n\)</span> canicas, etiquetadas del 1 a <span class="math inline">\(n\)</span>, tomamos muestras de las bolas, una a la vez con reemplazo, lo que significa que cada vez que se elige una bola, se devuelve al frasco. Cada bola muestreada es un sub-experimento con <span class="math inline">\(n\)</span> posibles resultados, y hay <span class="math inline">\(k\)</span> sub-experimentos, entonces mediante la regla de multiplicación , hay <span class="math inline">\(n^k\)</span> formas de obtener una muestra de tamaño <span class="math inline">\(k\)</span></p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-5"></span>
+<img src="images/muestreoconreemplazo.drawio.png" alt="Muestreo con reemplazo cuando n=5 y k = 2" width="30%" />
+<p class="caption">
+Figura 7.3: Muestreo con reemplazo cuando n=5 y k = 2
+</p>
+</div>
+<div class="theorem">
+<p><span id="thm:muestreosinreemplazo" class="theorem"><strong>Teorema 7.3  (Muestreo sin reemplazo) </strong></span>Consideremos <span class="math inline">\(n\)</span> objetos y tomamos <span class="math inline">\(k\)</span> de ellos, una a la vez sin reemplazo( es decir elegir un determinado objeto y se impide que se elija nuevamente). entonces hay <span class="math inline">\(n(n-1) ... (n-k+1)\)</span> posibles resultados , para <span class="math inline">\(k \leq n\)</span> y (0 posibilidades para <span class="math inline">\(k&gt;n\)</span>)</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-6"></span>
+<img src="images/muestreosinreemplazo.drawio.png" alt="Muestreo sin reemplazo cuando n=5 y k = 2" width="30%" />
+<p class="caption">
+Figura 7.4: Muestreo sin reemplazo cuando n=5 y k = 2
+</p>
+</div>
+<p>El resultado es consecuencia directa de la regla de multiplicación: cada canica muestreada es otra vez un sub-experimento, y el número de posibles resultados decrece en uno (1) cada vez. Notemos que para muestrear <span class="math inline">\(k\)</span> de <span class="math inline">\(n\)</span> objetos sin reemplazo, necesitamos <span class="math inline">\(k \leq n\)</span>, mientras que en el muestreo con reemplazo los objetos son inagotables.</p>
+<div class="example">
+<p><span id="exm:permutaciones" class="example"><strong>Ejemplo 7.3  (Permutaciones y factoriales) </strong></span>Una <em>permutación</em> de <span class="math inline">\(1,2,...,n\)</span> es una disposicion de ellos en algun orden, ej. <span class="math inline">\(3,5,1,2,4\)</span> es una permutación de <span class="math inline">\(1,2,3,4,5\)</span> por el teorema <a href="espacios-muestrales-y-conteo.html#thm:muestreosinreemplazo">7.3</a> con <span class="math inline">\(k=n\)</span> tendríamos que hay <span class="math inline">\(n!\)</span> permutaciones de <span class="math inline">\(1,2,...,n\)</span>. Por ejemplo hay <span class="math inline">\(n!\)</span> maneras en las cuales <span class="math inline">\(n\)</span> personas pueden alinearse en una fila para comprar un helado</p>
+</div>
+<p>Los teoremas <a href="espacios-muestrales-y-conteo.html#thm:muestreoconreemplazo">7.2</a> y <a href="espacios-muestrales-y-conteo.html#thm:muestreosinreemplazo">7.3</a> se refieren a <em>conteo</em>, pero cuando la definición de probabilidad ingenua aplica, podemos usarlos para calcular <em>probabilidades</em></p>
+<div class="example">
+<p><span id="exm:problemanacimiento" class="example"><strong>Ejemplo 7.4  (Problema del nacimiento) </strong></span>Existen <span class="math inline">\(k\)</span> personas en un cuarto, asumimos que los cumpleaños de cada persona son igualmente probables para cualquiera de los <span class="math inline">\(365\)</span> días del año (se excluye febrero 29), y que los cumpleaños son independientes ( no hay gemelos en el cuarto), cual es la probabilidad que dos o mas personas en el grupo tengan la misma fecha de cumpleaños.</p>
+</div>
+<p><strong>Solución</strong> La definición de probabilidad ingenua dice que solo necesitamos contar el numero de formas para asignar cumpleaños a <span class="math inline">\(k\)</span> personas de tal forma que hay dos o mas personas comparten la misma fecha de cumpleaños. Este problema de conteo es un poco complejo, puesto que por ejemplo Emma y Steve comparten la fecha de cumpleaños, o Steve y Naomi o los tres juntos, o tres de ellos pueden compartir la fecha de cumpleaños, mientras otros dos en el grupo comparten fecha de nacimiento diferentes, o un monton de otras posibilidades.</p>
+<p>En vez de eso, contemos el complemento: el numero de maneras para asignar cumpleaños a <span class="math inline">\(k\)</span> personas de tal forma que no haya dos personas que compartan un cumpleaños. Esto equivale a un muestreo de los 365 dias del año <em>sin</em> reemplazo, es decir para la primera persona, hay <span class="math inline">\(365\)</span> opciones para elegir el día del año de su cumpleaños, para la segunda persona, quedan 364 opciones, ya que no puede compartir el mismo día de cumpleaños con la primera persona. De manera similar, para la tercera persona quedan 363 opciones, puesto que no puede compartir el mismo día de cumpleaños con las dos primeras personas, de igual forma para la <span class="math inline">\(k-esima\)</span> persona hay <span class="math inline">\(365-k+1\)</span> opciones, por lo tanto el numero total de formas de asignar cumpleaños es por el teorema <a href="espacios-muestrales-y-conteo.html#thm:muestreosinreemplazo">7.3</a> de <span class="math inline">\(365.364.363...(365-k+1)\)</span> para <span class="math inline">\(k \leq 365\)</span></p>
+<p>Sea <span class="math inline">\(A\)</span> el evento de obtener formas en que todas <span class="math inline">\(k\)</span> personas cumplen años en días diferentes, por tanto <span class="math inline">\(|A|=365.364.363...(365-k+1)\)</span></p>
+<p>El total de formas posibles de asignar cumpleaños en el cuarto es <span class="math inline">\(|S|=365^k\)</span>, a las <span class="math inline">\(k\)</span> personas, ya que cada persona puede tener su cumpleaños en cualquiera de los 365 días del año, de acuerdo al teorema <a href="espacios-muestrales-y-conteo.html#thm:muestreoconreemplazo">7.2</a></p>
+<p>por tanto :</p>
+<p><span class="math display">\[P(A)=\frac{|A|}{|B|} =\frac{365.364.363...(365-k+1)}{365^k}  \]</span></p>
+<p><span class="math display">\[P(A)=\frac{|A|}{|B|} =\frac{365.364.363...(365-k+1)}{365^k}  \]</span> Por tanto la probabilidad de que al menos una fecha de cumpleaños coincida es; <span class="math display">\[1 - P(A) = 1- \frac{365.364.363...(365-k+1)}{365^k}  \]</span> La figura realizada con python dibuja la probabilidad de que al menos una fecha de cumpleaños concuerda como una funcion de <span class="math inline">\(k\)</span>. con <span class="math inline">\(k=23\)</span> la probabilidad de coincidencia excede <span class="math inline">\(0.5\)</span>, para <span class="math inline">\(k=57\)</span> la probabilidad es cercana al %99%</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-7"></span>
+<img src="images/paradojacumpleanos.png" alt="Probabilidad de  que en un cuarto de $k$ personas al menos dos nacen en el mismo día" width="60%" />
+<p class="caption">
+Figura 7.5: Probabilidad de que en un cuarto de <span class="math inline">\(k\)</span> personas al menos dos nacen en el mismo día
+</p>
+</div>
+<p><a href="sourcecode.html#lbl_src_paradoja_cumpleanos-id">Ver codigo fuente en python - probabilidades en funcion de $k</a></p>
+<p><strong>Etiquetar objetos</strong></p>
+<p>Extraer una muestra de una población es un concepto muy fundamental en estadística, es importante pensar en los objetos o personas de la población como nombrados o etiquetados. Por ejemplo si hay <span class="math inline">\(n\)</span> bolas en un frasco, podemos imaginar que ellas tienen etiquetas desde <span class="math inline">\(1\)</span> a <span class="math inline">\(n\)</span>, incluso si las bolas se ven iguales al ojo humano. A cada persona en el problema del cumpleaños , podemos darle un numero de identificación en lugar de pensar en las personas como partículas indistinguibles.</p>
+</div>
+<div id="ajuste-por-sobreconteo-adjusting-or-overcounting" class="section level2 hasAnchor" number="7.4">
+<h2><span class="header-section-number">7.4</span> Ajuste por sobreconteo (Adjusting or overcounting)<a href="espacios-muestrales-y-conteo.html#ajuste-por-sobreconteo-adjusting-or-overcounting" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>En muchos problemas de conteo, no es fácil contar directamente cada posibilidad una vez y solo una vez. Sin embargo si podemos contar cada posibilidad exactamente <span class="math inline">\(c\)</span> veces para algun <span class="math inline">\(c\)</span>, entonce podemos ajustar dividiendo por <span class="math inline">\(c\)</span>. Por ejemplo, si hemos contado exactamente dos veces cada posibilidad, podemos dividir por <span class="math inline">\(2\)</span> para obtener el conteo correcto.</p>
+<div class="example">
+<p><span id="exm:comitesyequipos" class="example"><strong>Ejemplo 7.5  (Comites y equipos) </strong></span>Consideremos un grupo de cuatro personas</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>cuantas maneras hay de escoger un comité de dos personas</p></li>
+<li><p>cuantas maneras hay de dividir las personas en dos equipos de dos.</p></li>
+</ol>
+</div>
+<p><strong>Solución</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Una manera de contar las posibilidades es listar las personas etiquetándolas como 1,2,3,4 entonces las posibilidades son<br />
+</p>
+<p>{1,2},{1,3},{1,4},{2,3},{2,4},{3,4}<br />
+</p>
+<p>otra aproximación es usar la regla de multiplicación con un ajuste por sobreconteo. Por la regla de multiplicación hay <span class="math inline">\(4\)</span> formas de escoger la primera persona y <span class="math inline">\(3\)</span> maneras de escoger la segunda persona en el comité, pero esto cuenta cada posibilidad dos veces , como escoger las personas <span class="math inline">\(1\)</span> y <span class="math inline">\(2\)</span> es lo mismo que escoger las personas <span class="math inline">\(2\)</span> y <span class="math inline">\(1\)</span> tenemos un sobreconteo por un factor de <span class="math inline">\(2\)</span> , el numero de posibilidades es <span class="math inline">\((4.3)/2=6\)</span></p></li>
+<li><p>hay <span class="math inline">\(3\)</span> maneras de formar los equipos<br />
+posibilidad 1 {1,2},{3,4}<br />
+</p>
+<p>posibilidad 2 {1,3},{2,4}<br />
+</p>
+<p>posibilidad 3 {1,4},{2,3}<br />
+</p>
+<p>Listar todas las posibilidades puede ser tedioso o inviable con mas personas<br />
+</p>
+<p>Una segunda forma es fijar el compañero 1 del equipo de la persona 1 y luego determinar el otro equipo.</p>
+<p>Otra forma es que sabemos en la solución (a) que hay <span class="math inline">\(6\)</span> formas de escoger un equipo. escoger {1,2} para formar un equipo es lo mismo que escoger {3,4} para formar los dos equipos, así que la respuesta es <span class="math inline">\(6/2=3\)</span></p></li>
+</ol>
+<p>Existe un coeficiente llamado <em>coeficiente binomial</em> que cuenta el numero de subconjuntos de cierto tamaño para un conjunto , tal que el numero de formas de escoger un comité de tamaño <span class="math inline">\(k\)</span> de un conjunto de <span class="math inline">\(n\)</span> personas. Los conjuntos y los subconjuntos son por definición no ordenados es decir {3,1,4}= {4,1,3}, así que lo que contamos es el numero de maneras de escoger <span class="math inline">\(k\)</span> objetos de <span class="math inline">\(n\)</span> sin reemplazo y sin distinguir entre los diferentes ordenes</p>
+<div class="definition">
+<p><span id="def:coeficientebinomial" class="definition"><strong>Definición 7.3  (Coeficiente binomial) </strong></span>Para cualquier enteros no negativos <span class="math inline">\(k\)</span> y <span class="math inline">\(n\)</span>, el coeficiente binomial <span class="math inline">\(\binom{n}{k}\)</span>, se lee <em>combinatoria de</em> <span class="math inline">\(n\)</span> en <span class="math inline">\(k\)</span> o <em>n choose k</em> es el número de subconjuntos de tamaño <span class="math inline">\(k\)</span> para un conjunto de tamaño <span class="math inline">\(n\)</span> sin importar el orden</p>
+</div>
+<div class="theorem">
+<p><span id="thm:formulacoeficientebinomial" class="theorem"><strong>Teorema 7.4  (Formula del coeficiente binomial) </strong></span>para <span class="math inline">\(n\)</span> y <span class="math inline">\(k\)</span> enteros no negativos y <span class="math inline">\(k \leq n\)</span></p>
+<p><span class="math display" id="eq:eqcoeficientebinom">\[\begin{equation}
+  \binom{n}{k} = \frac{ n(n-1) ...(n-k+1)}{k!} = \frac{n!}{(n-k)!k!}
+  \tag{7.3}
+\end{equation}\]</span></p>
+<p>si <span class="math inline">\(k&gt;n\)</span></p>
+<p><span class="math display" id="eq:eqcoeficientebinom0">\[\begin{equation}
+  \binom{n}{k} = 0
+  \tag{7.4}
+\end{equation}\]</span></p>
+</div>
+<p>Prueba: sea <span class="math inline">\(A\)</span> un conjunto con <span class="math inline">\(|A|=n\)</span> cualquier subconjunto de <span class="math inline">\(A\)</span> tiene un maximo de <span class="math inline">\(n\)</span> elementos así que <span class="math inline">\(\binom{n}{k} = 0\)</span></p>
+<p>El teorema <a href="espacios-muestrales-y-conteo.html#thm:muestreosinreemplazo">7.3</a> dice que hay <span class="math inline">\(n(n-1) ...(n-k+1)\)</span> maneras de realizar una escogencia ordenada de <span class="math inline">\(k\)</span> elementos sin reemplazo Esto cuenta en exceso cada subconjunto de interés por un factor de <span class="math inline">\(k!\)</span> (ya que no nos importa cómo se ordenan estos elementos), por lo que podemos obtener el conteo correcto dividiendo por <span class="math inline">\(k!\)</span></p>
+<div class="example">
+<p><span id="exm:cluboficiales" class="example"><strong>Ejemplo 7.6  (Club de oficiales) </strong></span>en un club de <span class="math inline">\(n\)</span> personas , hay <span class="math inline">\(n(n-1)(n-2)\)</span>formas de escoger un presidente, vicepresidente y tesorera, por tanto hay
+<span class="math inline">\(\binom{n}{3} = \frac{ n(n-1)(n-2)}{3!}\)</span> formas de escoger 3 oficiales sin títulos predeterminados.</p>
+</div>
+<div class="example">
+<p><span id="exm:permutacionespaalabra" class="example"><strong>Ejemplo 7.7  (Permutaciones de una palabra) </strong></span>Cuantas formas diferentes existen para permutar la palabra LALALAAA? para determinar una permutación necesitamos escoger como colocar las 5 letras A en ocho slots disponibles o en forma equivalente escoger donde pueden ir las 3 L’s</p>
+</div>
+<p>Solución</p>
+<p><span class="math display">\[\binom{8}{5} =\binom{8}{3} = \frac{ 8.7.6}{3!} = 56\text{ permutaciones}\]</span></p>
+<div class="example">
+<p><span id="exm:fullhouse" class="example"><strong>Ejemplo 7.8  (Full house en poker) </strong></span>Una mano de 5 cartas es repartida desde una baraja estandar de 52 cartas, la mano es llamada un __full house_ si este consiste en tres cartas del mismo rango y dos cartas de otro rango, ejemplo tres 7’s y dos 10’s (en cualquier orden), cual es la probabilidad de un full house?</p>
+<p>Hay <span class="math inline">\(\binom{52}{5}=2598960\)</span> posibles manos , igualmente probables por simetría, asi que es aplicable la definición de probabilidad ingenua.</p>
+<p>Para encontrar el numero de manos de full house usamos la regla de multiplicación, Hay <span class="math inline">\(13\)</span> rangos de cartas de una baraja por lo que hay <span class="math inline">\(\binom{13}{1}=13\)</span> de elegir un rango del trio y <span class="math inline">\(\binom{12}{1}\)</span> formas de elegir el rango del par necesario, este rango debe ser diferente al trio ,</p>
+<p>Para el primer rango hay <span class="math inline">\(\binom{4}{3}\)</span> formas de seleccionar tres cartas de ese rango y <span class="math inline">\(\binom{4}{2}\)</span> formas de escoger las dos cartas del otro rango</p>
+<p>Por tanto tenemos un total de posibles formas de obtener fullhouse de</p>
+<p><span class="math display">\[\binom{13}{1} \binom{4}{3} \binom{12}{1} \binom{4}{2}  =3744\]</span>
+Por tanto si <span class="math inline">\(F\)</span> es el evento de obtener un full house tenemos</p>
+<p><span class="math display">\[P(F) = 3744/2598960 ≈ 0.0014405762304921968≈0.144\% \]</span></p>
+</div>
+<p><strong>Nota: </strong></p>
+<p>Una baraja de poker estándar consta de 52 cartas divididas en cuatro palos: corazones (hearts), diamantes (diamonds), tréboles (clubs) y picas (spades). Cada palo contiene 13 cartas numeradas del 2 al 10, y luego tres cartas de figura: el Jack (J), la Reina (Q) y el Rey (K), junto con el As (A).</p>
+<p>Por lo tanto, las 52 cartas de una baraja de poker estándar son:</p>
+<p>Corazones (Hearts):<br />
+</p>
+<p>A de corazones (A♥)<br />
+2 de corazones (2♥)<br />
+3 de corazones (3♥)<br />
+4 de corazones (4♥)<br />
+5 de corazones (5♥)<br />
+6 de corazones (6♥)<br />
+7 de corazones (7♥)<br />
+8 de corazones (8♥)<br />
+9 de corazones (9♥)<br />
+10 de corazones (10♥)<br />
+J de corazones (J♥)<br />
+Q de corazones (Q♥)<br />
+K de corazones (K♥)<br />
+</p>
+<p>Diamantes (Diamonds):<br />
+</p>
+<p>A de diamantes (A♦)<br />
+2 de diamantes (2♦)<br />
+3 de diamantes (3♦)<br />
+4 de diamantes (4♦)<br />
+5 de diamantes (5♦)<br />
+6 de diamantes (6♦)<br />
+7 de diamantes (7♦)<br />
+8 de diamantes (8♦)<br />
+9 de diamantes (9♦)<br />
+10 de diamantes (10♦)<br />
+J de diamantes (J♦)<br />
+Q de diamantes (Q♦)<br />
+K de diamantes (K♦)<br />
+</p>
+<p>Tréboles (Clubs):<br />
+</p>
+<p>A de tréboles (A♣)<br />
+2 de tréboles (2♣)<br />
+3 de tréboles (3♣)<br />
+4 de tréboles (4♣)<br />
+5 de tréboles (5♣)<br />
+6 de tréboles (6♣)<br />
+7 de tréboles (7♣)<br />
+8 de tréboles (8♣)<br />
+9 de tréboles (9♣)<br />
+10 de tréboles (10♣)<br />
+J de tréboles (J♣)<br />
+Q de tréboles (Q♣)<br />
+K de tréboles (K♣)<br />
+</p>
+<p>Picas (Spades):<br />
+A de picas (A♠)<br />
+2 de picas (2♠)<br />
+3 de picas (3♠)<br />
+4 de picas (4♠)<br />
+5 de picas (5♠)<br />
+6 de picas (6♠)<br />
+7 de picas (7♠)<br />
+8 de picas (8♠)<br />
+9 de picas (9♠)<br />
+10 de picas (10♠)<br />
+J de picas (J♠)<br />
+Q de picas (Q♠)<br />
+K de picas (K♠)<br />
+</p>
+<p>Estas son las 52 cartas en una baraja de poker estándar.</p>
+<div class="example">
+<p><span id="exm:escogiendocomplemento" class="example"><strong>Ejemplo 7.9  (Escogiendo el complemento) </strong></span>Para cualquier <span class="math inline">\(n,k\)</span> enteros positivos con <span class="math inline">\(k \leq n\)</span></p>
+<p><span class="math display">\[\binom{n}{k}= \binom{n}{n-k}\]</span></p>
+</div>
+<p>consideremos un comité de <span class="math inline">\(n\)</span> personas de las cuales se escoge un equipo de <span class="math inline">\(k\)</span> personas, ya sabemos que existen <span class="math inline">\(\binom{n}{k}\)</span> posibilidades , pero otra forma de conocer la cantidad posibilidades es buscar las <span class="math inline">\(n-k\)</span> personas que no estan en el comité</p>
+<div class="example">
+<p><span id="exm:elcapitandelequipo" class="example"><strong>Ejemplo 7.10  (El capitán del equipo) </strong></span>Para cualquier <span class="math inline">\(n,k\)</span> enteros positivos con <span class="math inline">\(k \leq n\)</span></p>
+<p><span class="math display">\[n\binom{n-1}{k-1}= k\binom{n}{k}\]</span></p>
+</div>
+<p>En forma sencilla consideremos un grupo de <span class="math inline">\(n\)</span> personas de las cuales se escoge un equipo de <span class="math inline">\(k\)</span> personas, uno de ellos podría ser el capitán del equipo.
+Inicialmente podemos escoger el capitán del equipo y el resto <span class="math inline">\(k-1\)</span> como miembros del equipo. Equivalente a esto podríamos escoger primero los <span class="math inline">\(k\)</span> miembros del equipo y luego escoger uno de ellos como el capitán</p>
+<div class="example">
+<p><span id="exm:identidaddevandermondes" class="example"><strong>Ejemplo 7.11  (Identidad de vandermonde's) </strong></span>Para cualquier <span class="math inline">\(n,k\)</span> enteros positivos con <span class="math inline">\(k \leq n\)</span></p>
+<p><span class="math display">\[\binom{m+n}{k}= \sum_{j=0}^{k}\binom{m}{j}\binom{n}{k-j} \]</span></p>
+</div>
+<p>Consideremos un conjunto de <span class="math inline">\(m\)</span> pavos reales y <span class="math inline">\(n\)</span> tucanes, de los cuales se puede seleccionar un conjunto de <span class="math inline">\(k\)</span> aves , hay entonces <span class="math inline">\(\binom{m+n}{k}\)</span> posibilidades para el conjunto de aves. Si hay <span class="math inline">\(j\)</span> pavos reales en el conjunto entonces debe de haber <span class="math inline">\(k-j\)</span> tucanes en el mismo conjunto. El lado derecho de la identidad suma todos los casos posibles.</p>
+<div class="example">
+<p><span id="exm:dividirpersonas" class="example"><strong>Ejemplo 7.12  (Dividir 12 personas en 3 equipos) </strong></span>Cuántas formas hay de dividir una docena de personas en 3 equipos, donde un equipo tiene 2 personas y los otros dos equipos tienen 5 personas cada uno?</p>
+<p><span class="math display">\[\frac{\binom{12}{2}\binom{10}{5}\binom{5}{5}}{2}=8316\]</span></p>
+</div>
+<p>La división por 2 es porque por ejemplo, si las personas se nombran como [‘A’, ‘B’, ‘C’, ‘D’, ‘E’, ‘F’, ‘G’, ‘H’, ‘I’, ‘J’, ‘K’, ‘L’]</p>
+<p>el primer equipo puede estar conformado por
+A B
+el segundo equipo puede estar conformado por
+C, D, E, F, G
+el tercer equipo puede estar conformado por
+H, I, J, K, L</p>
+<p>Pero una posible combinación del segundo equipo puede ser también
+H, I, J, K, L</p>
+<p>y en el tercer equipo esta formado por
+C, D, E, F, G</p>
+<div class="example">
+<p><span id="exm:dividirpersonas1" class="example"><strong>Ejemplo 7.13  (Dividir 12 personas en 3 equipos de 4 personas) </strong></span>Cuántas formas hay de dividir una docena de personas en 3 equipos, donde un equipo tiene 4 personas?</p>
+<p><span class="math display">\[\frac{\binom{12}{4}\binom{12}{4}\binom{12}{4}}{3!}=5775\]</span></p>
+</div>
+<div class="example">
+<p><span id="exm:dividirpersonas1" class="example"><strong>Ejemplo 7.13  (suma de combinatorias) </strong></span>Demostrar</p>
+<p><span class="math display">\[\binom{n}{k} + \binom{n}{k-1} = \binom{n+1}{k}\]</span>
+o lo que es lo mismo</p>
+<p><span class="math display">\[ \binom{n}{k} +\binom{n}{k+1}  = \binom{n+1}{k+1}\]</span></p>
+</div>
+<div class="example">
+<p><span id="exm:problemacifrastelefonicas1" class="example"><strong>Ejemplo 7.14  (telefono de 7 digitos) </strong></span>Cuántos números de teléfono de 7 dígitos son posibles, teniendo en cuenta que la primera cifra no puede iniciar con 0 o 1</p>
+<p><span class="math inline">\(8*10*10*10*10*10*10=8000000\)</span></p>
+</div>
+<div class="example">
+<p><span id="exm:problemacifrastelefonicas2" class="example"><strong>Ejemplo 7.15  (telefono de 7 digitos) </strong></span>Cuántos números de teléfono de 7 dígitos son posibles, pero esta vez no puede iniciar con 911</p>
+<p>Existen <span class="math inline">\(10^4\)</span> posibles valores que inician con <span class="math inline">\(911\)</span> , basta con fijar el 911 y quedan <span class="math inline">\(4\)</span> cifras usando la regla de multiplicación</p>
+<p>Por otro lado hay <span class="math inline">\(8000000\)</span> de combinaciones que no inician ni con 0 ni con 1</p>
+<p>Por tanto el numero de combinaciones posibles es</p>
+<p><span class="math display">\[8000000-10000=7990000\]</span></p>
+</div>
+<div class="example">
+<p><span id="exm:partidasdeajedrez" class="example"><strong>Ejemplo 7.16  (partidas de ajedrez) </strong></span>Dos ajedrecistas, A y B, van a jugar 7 partidas. Cada juego tiene tres resultados posibles: una victoria para A (que es una derrota para B), un empate (empate) y una derrota para A (que es una victoria para B). Una victoria vale 1 punto, un empate vale 0.5 puntos y una derrota vale 0 puntos.</p>
+<p>¿Cuántos resultados posibles hay para los juegos individuales, de modo que el jugador A en general termine con 3 victorias, 2 empates y 2 derrotas?</p>
+<p>Una forma de resolverlo es imaginando <span class="math inline">\(7\)</span> posiciones y por tanto se pueden acomodar en esas 7 posiciones <span class="math inline">\(\binom{7}{2}\)</span> empates, en las otras 5 posiciones podemos acomodar <span class="math inline">\(\binom{5}{3}\)</span> victorias y en las ultimas 2 posiciones podemos acomodar <span class="math inline">\(\binom{2}{2}\)</span> para un total de posibilidades de</p>
+<p><span class="math display">\[\binom{7}{2} \binom{5}{3} \binom{2}{2}= 210\]</span></p>
+<p>otra forma de resolverlo es con el <em>coeficiente binomial</em> (se puede usar cuando se necesita partir un grupo de <span class="math inline">\(n\)</span> objetos en tres o mas grupos ) equivale a : 7 (7!) total de juegos en grupos de 3 (<span class="math inline">\(3!\)</span>) y dos grupos de dos (2!) (2!)</p>
+<p><span class="math display">\[\frac{7!}{3!2!2!}=210\]</span>
+¿Cuántos resultados posibles hay para los juegos individuales, de modo que A termine con 4 puntos y B termine con 3 puntos?</p>
+<p>tenemos estas posibilidades para que A termine con 4 puntos y B termine con tres puntos</p>
+<p>WDDDDDD
+WWDDDDL
+WWWDDLL
+WWWWLLL</p>
+<p>W es partido ganado, D partido empatado y L partido perdido</p>
+<p><span class="math display">\[\frac{7!}{1!6!} + \frac{7!}{2!4!1!} + \frac{7!}{3!2!2!}   + \frac{7!}{4!3!} = 357\]</span></p>
+</div>
+<div class="example">
+<p><span id="exm:ascensor" class="example"><strong>Ejemplo 7.17  (ascensor) </strong></span>Tres personas se suben a un ascensor vacío en el primer piso de un edificio que tiene pisos. Cada uno presiona el botón del piso deseado (a menos que uno de los otros ya haya presionado ese botón). Suponga que es igualmente probable que quieran pasar por los pisos (independientemente el uno del otro). ¿Cuál es la probabilidad de que se presionen los botones de pisos consecutivos?</p>
+<p><em>Solucion:</em>
+El numero total de posibles resultados descartando el 1 es <span class="math inline">\(9^3\)</span></p>
+<p>Hay 7 posibilidades por parte de las personas de subir a pisos consecutivos (2,3,4), (3,4,5), (4,5,6), (5,6,7), (6,7,8), (7,8,9), (8,9,10) y por cada una de esas posibilidades, las personas pueden escoger <span class="math inline">\(3!\)</span> maneras, La definición de probabilidad ingenua entonces nos dice que la probabilidad es:</p>
+<p><span class="math display">\[\frac{7*3!}{9^3}=0.057613169\]</span></p>
+</div>
+<div class="example">
+<p><span id="exm:cumpleanosenenero" class="example"><strong>Ejemplo 7.18  (cujple años en) </strong></span>La probabilidad de que tres personas en un grupo de tres nazcan en enero 1 es mayor , menor o igual que la probabilidad de que en un gruṕo de tres personas una nace en enero 1, otra nace en enero 2 y otra nace en enero 3</p>
+<p><em>Solucion:</em>
+El numero total de posibles resultados es <span class="math inline">\(365^3\)</span></p>
+<p>Hay una sola posibilidad en que tres personas nazcan el día 1 de enero , por tanto la probabilidad de que nazcan el día 1 de enero es : <span class="math display">\[\frac{1}{365^3} \]</span></p>
+<p>Hay <span class="math inline">\(3!\)</span> posibilidades de que una persona del grupo nazca el día 1 , otra el dia 2 y otra el dia 3 por tanto la probabilidad es <span class="math display">\[\frac{6}{365^3} \]</span></p>
+<p>Por tanto La probabilidad de que tres personas en un grupo de tres nazcan en enero 1 es <em>menor</em> que la probabilidad de que en un grupo de tres personas una nace en enero 1, otra nace en enero 2 y otra nace en enero 3</p>
+</div>
+
+</div>
+</div>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-blitzstein2019" class="csl-entry">
+K. Blitzstein, Joseph, and Jessica Hwang. 2019. <em>Introduction to Probability Second Edition</em>. <a href="https://drive.google.com/file/d/1VmkAAGOYCTORq1wxSQqy255qLJjTNvBI/view">https://drive.google.com/file/d/1VmkAAGOYCTORq1wxSQqy255qLJjTNvBI/view</a>.
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="final-words.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="probabilidad.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/10-probabilidad.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Notas de Estad                                                                                                                                        istica matemática .pdf", "Notas de Estad                                                                                                                                        istica matemática .epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
